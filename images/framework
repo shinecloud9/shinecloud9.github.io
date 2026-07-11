@@ -10,6 +10,18 @@
         <mxCell id="xR96iL0vuJGsKg3Qm78N-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" value="不同玩家群体关注维度、表达特征及其权重" vertex="1">
           <mxGeometry height="70" width="140" x="240" y="255" as="geometry" />
         </mxCell>
+        <mxCell id="xR96iL0vuJGsKg3Qm78N-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" value="形成玩家群体benchmark/persona" vertex="1">
+          <mxGeometry height="70" width="140" x="440" y="255" as="geometry" />
+        </mxCell>
+        <mxCell id="xR96iL0vuJGsKg3Qm78N-5" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="agent" vertex="1">
+          <mxGeometry height="60" width="100" x="270" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="xR96iL0vuJGsKg3Qm78N-6" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.database;whiteSpace=wrap;" value="真实玩家路径" vertex="1">
+          <mxGeometry height="60" width="100" x="80" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="xR96iL0vuJGsKg3Qm78N-7" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.database;whiteSpace=wrap;" value="" vertex="1">
+          <mxGeometry height="60" width="100" x="80" y="450" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
