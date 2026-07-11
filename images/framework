@@ -5,7 +5,10 @@
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="xR96iL0vuJGsKg3Qm78N-1" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.database;whiteSpace=wrap;" value="真实社区评论" vertex="1">
-          <mxGeometry height="60" width="100" x="130" y="350" as="geometry" />
+          <mxGeometry height="60" width="100" x="80" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="xR96iL0vuJGsKg3Qm78N-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" value="不同玩家群体关注维度、表达特征及其权重" vertex="1">
+          <mxGeometry height="70" width="140" x="240" y="255" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
