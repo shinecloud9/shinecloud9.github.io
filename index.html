@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Xianyun Cheng</title>
+  <meta name="description" content="Xianyun Cheng, MSc Mechanical Engineering at the National University of Singapore. Research on trustworthy AI: robustness and safety of LLM-based systems." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Xianyun Cheng · Personal Academic Homepage" />
+  <meta property="og:description" content="MSc Mechanical Engineering @ NUS · Trustworthy AI: robustness and safety of LLM-based systems · ASE 2026 paper." />
+  <meta property="og:url" content="https://shinecloud9.github.io/" />
+  <meta property="og:image" content="https://shinecloud9.github.io/assets/og-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <style>
+    :root{
+      --bg:#f8f6f1; --ink:#1f2328; --body:#3a3f45; --muted:#6b7178; --line:#e3ddd1;
+      --accent:#2c4f6e; --accent-hover:#183448; --tag-bg:#e9eef3;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{ --bg:#15181c; --ink:#ecebe7; --body:#cfd2d6; --muted:#979da5; --line:#2b3138;
+             --accent:#9cbad8; --accent-hover:#c3d6ea; --tag-bg:#22303d; }
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0; background:var(--bg); color:var(--body);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"PingFang SC","Microsoft YaHei",sans-serif;
+      font-size:16px; line-height:1.7; -webkit-font-smoothing:antialiased;}
+    a{color:var(--accent); text-decoration:none;}
+    a:hover{color:var(--accent-hover); text-decoration:underline; text-underline-offset:3px;}
+    .serif{font-family:Georgia,"Times New Roman",serif;}
+
+    header.nav{position:sticky; top:0; z-index:10; background:var(--bg); border-bottom:1px solid var(--line);}
+    .nav-in{max-width:880px; margin:0 auto; padding:14px 24px; display:flex; justify-content:space-between; align-items:center; gap:16px;}
+    .brand{font-family:Georgia,serif; font-size:18px; color:var(--ink); letter-spacing:.02em;}
+    .brand:hover{text-decoration:none; color:var(--ink);}
+    .nav-in nav{display:flex; gap:20px; flex-wrap:wrap; font-size:14px;}
+    .nav-in nav a{color:var(--muted);}
+    .nav-in nav a:hover{color:var(--ink); text-decoration:none;}
+
+    main{max-width:880px; margin:0 auto; padding:0 24px 64px;}
+    section{padding:44px 0; border-bottom:1px solid var(--line);}
+    section:last-of-type{border-bottom:none;}
+    h2{font-family:Georgia,serif; font-weight:400; font-size:28px; color:var(--ink); margin:0 0 22px;}
+
+    /* About */
+    .hero{display:grid; grid-template-columns:1fr 200px; gap:44px; align-items:start; padding-top:56px;}
+    .eyebrow{font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); margin:0 0 10px;}
+    h1{font-family:Georgia,serif; font-weight:400; font-size:46px; line-height:1.1; color:var(--ink); margin:0;}
+    .cn{font-size:18px; color:var(--muted); margin:6px 0 4px;}
+    .affil{font-size:15px; color:var(--accent); margin:0 0 20px;}
+    .hero p{margin:0 0 14px;}
+    .photo{display:block; width:100%; height:auto; aspect-ratio:3/4; object-fit:cover; border-radius:10px; border:1px solid var(--line);}
+    .links{display:flex; flex-wrap:wrap; gap:8px 22px; margin-top:18px; font-size:15px;}
+    .links a{border-bottom:1px solid var(--line); padding-bottom:1px;}
+    .links a:hover{text-decoration:none; border-color:var(--accent);}
+    ul.interests{margin:4px 0 0; padding-left:20px;}
+    ul.interests li{margin:4px 0;}
+
+    /* News */
+    .news{display:grid; grid-template-columns:110px 1fr; gap:10px 20px; margin:0;}
+    .news dt{font-size:14px; color:var(--muted); padding-top:1px;}
+    .news dd{margin:0;}
+
+    /* Publication */
+    .pub h3{font-size:18px; font-weight:600; color:var(--ink); margin:0 0 6px; line-height:1.45;}
+    .authors{margin:0;}
+    .authors b{color:var(--ink);}
+    .venue{margin:2px 0 0; color:var(--muted); font-style:italic;}
+    .badge{display:inline-block; font-style:normal; font-size:12px; line-height:1.4; font-weight:600;
+      padding:1px 8px; border-radius:999px; background:var(--tag-bg); color:var(--accent); vertical-align:1px; margin-left:6px;}
+    .pub .summary{margin:12px 0 14px;}
+    .pub figure{margin:0 0 14px;}
+    .pub figure img{width:100%; height:auto; border:1px solid var(--line); border-radius:8px; background:#fff;}
+    .btns{display:flex; flex-wrap:wrap; gap:8px;}
+    .btns a, .btns summary{display:inline-block; font-size:13.5px; padding:4px 12px; border:1px solid var(--line); border-radius:6px; color:var(--accent); cursor:pointer; list-style:none;}
+    .btns a:hover, .btns summary:hover{border-color:var(--accent); text-decoration:none;}
+    .btns summary::-webkit-details-marker{display:none;}
+    details.bib{display:contents;}
+    details.bib[open] pre{display:block;}
+    pre{flex-basis:100%; margin:6px 0 0; padding:14px; font-size:12.5px; line-height:1.5; overflow-x:auto;
+      background:var(--tag-bg); border-radius:8px; color:var(--body);}
+
+    /* Lists: projects / experience / education */
+    .item{display:grid; grid-template-columns:1fr auto; gap:2px 20px; padding:12px 0;}
+    .item + .item{border-top:1px dashed var(--line);}
+    .item .t{color:var(--ink); font-weight:600;}
+    .item .when{font-size:14px; color:var(--muted); white-space:nowrap; text-align:right;}
+    .item .d{grid-column:1 / -1; margin:0;}
+    .item .d a{margin-left:4px; font-size:14px;}
+
+    ul.plain{margin:0; padding-left:20px;}
+    ul.plain li{margin:6px 0;}
+
+    footer{max-width:880px; margin:0 auto; padding:28px 24px 48px; border-top:1px solid var(--line); font-size:14px; color:var(--muted);}
+    footer p{margin:4px 0;}
+
+    @media (max-width:720px){
+      .hero{grid-template-columns:1fr; gap:24px; padding-top:36px;}
+      .photo{width:150px;}
+      .hero-photo{order:-1;}
+      h1{font-size:38px;}
+      .nav-in nav{display:none;}
+      .news{grid-template-columns:1fr; gap:0 0;}
+      .news dd{margin-bottom:12px;}
+      .item{grid-template-columns:1fr;}
+      .item .when{text-align:left;}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-in">
+      <a class="brand" href="#about">Xianyun Cheng</a>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#publications">Publication</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="about" class="hero">
+      <div>
+        <p class="eyebrow">A personal academic homepage</p>
+        <h1>Xianyun Cheng</h1>
+        <div class="cn">程显云</div>
+        <p class="affil">MSc Mechanical Engineering · National University of Singapore</p>
+
+        <p>I am an MSc student in Mechanical Engineering at the National University of Singapore, and I hold a First Class Honours BEng from the University of Dundee. My recent research is on <b>trustworthy AI</b>, testing how robust and safe LLM-based systems really are, in collaboration with <a href="https://personal.ntu.edu.sg/yangliu/" target="_blank" rel="noopener">Prof. Yang Liu</a> (NTU) and <a href="https://conf.researchr.org/profile/ase-2026/tianlinli" target="_blank" rel="noopener">Dr. Tianlin Li</a> (Beihang University).</p>
+        <p>Looking ahead, I hope to work on <b>safe and reliable AI agents for the physical world</b>: agents that act on robots, manufacturing lines and other engineering systems, where failures are costly and my engineering background and AI-safety research meet.</p>
+
+        <p style="margin:18px 0 4px;"><b>Research interests</b></p>
+        <ul class="interests">
+          <li>Robustness and safety testing of LLM-based systems</li>
+          <li>Trustworthy AI agents for safety-critical, real-world workflows</li>
+          <li>AI for engineering: bringing reliable AI into mechanical and manufacturing systems</li>
+        </ul>
+
+        <div class="links">
+          <a href="assets/docs/Xianyun_Cheng_CV.pdf" target="_blank" rel="noopener">CV</a>
+          <a href="mailto:xianyuncheng@u.nus.edu">Email</a>
+          <a href="https://www.linkedin.com/in/xianyuninnus" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://arxiv.org/abs/2607.27648" target="_blank" rel="noopener">arXiv</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img class="photo" src="assets/photo.jpg" alt="Portrait of Xianyun Cheng" width="480" height="640" />
+      </div>
+    </section>
+
+    <section id="news">
+      <h2>Latest news</h2>
+      <dl class="news">
+        <dt>Oct 2026</dt><dd>Our paper on format robustness of LLM document workflows is presented at <b>ASE 2026</b> in Munich.</dd>
+        <dt>Sep 2026</dt><dd>Started my MSc in Mechanical Engineering at the <b>National University of Singapore</b>.</dd>
+        <dt>Aug 2026</dt><dd>Paper accepted to <b>ASE 2026</b>, the 41st IEEE/ACM International Conference on Automated Software Engineering.</dd>
+        <dt>Jun 2026</dt><dd>Graduated with a <b>First Class Honours</b> BEng (University of Dundee) and a BEng from Central South University.</dd>
+      </dl>
+    </section>
+
+    <section id="publications" class="pub">
+      <h2>Publication</h2>
+      <h3>Not as Sweet by Another Name: An Empirical Study of Format Robustness in LLM Document Workflows</h3>
+      <p class="authors">Xiaoyu Zhang, <b>Xianyun Cheng</b>, Tianlin Li, Yuwei Zheng, Yue Yang, Yang Liu</p>
+      <p class="venue">The 41st IEEE/ACM International Conference on Automated Software Engineering (ASE) · 2026<span class="badge">Accepted</span></p>
+      <p class="summary">A format-aware metamorphic testing framework for LLM document workflows. Across 48,000 executions, changing only the file format cut accuracy by up to 53.63% and flipped decisions in over 41% of cases; lightweight test-time safeguards recovered up to 44.21% of the drift without retraining.</p>
+      <figure><img src="assets/airflow_overview.png" alt="Overview of the format-aware metamorphic testing framework" loading="lazy" /></figure>
+      <div class="btns">
+        <a href="https://conf.researchr.org/details/ase-2026/ase-2026-research-track/160/Not-as-Sweet-by-Another-Name-An-Empirical-Study-of-Format-Robustness-in-LLM-Document" target="_blank" rel="noopener">Paper (ASE 2026)</a>
+        <a href="https://arxiv.org/abs/2607.27648" target="_blank" rel="noopener">arXiv</a>
+        <a href="https://doi.org/10.1145/3832783.3837456" target="_blank" rel="noopener">DOI</a>
+        <a href="https://doi.org/10.5281/zenodo.21696268" target="_blank" rel="noopener">Code &amp; Data</a>
+        <a href="assets/docs/ase2026_slides.pdf" target="_blank" rel="noopener">Slides</a>
+        <a href="assets/docs/ase2026_poster.pdf" target="_blank" rel="noopener">Poster</a>
+        <details class="bib"><summary>BibTeX</summary>
+<pre>@inproceedings{zhang2026notsweet,
+  title     = {Not as Sweet by Another Name: An Empirical Study of
+               Format Robustness in LLM Document Workflows},
+  author    = {Zhang, Xiaoyu and Cheng, Xianyun and Li, Tianlin and
+               Zheng, Yuwei and Yang, Yue and Liu, Yang},
+  booktitle = {Proceedings of the 41st IEEE/ACM International Conference
+               on Automated Software Engineering (ASE)},
+  year      = {2026},
+  doi       = {10.1145/3832783.3837456}
+}</pre></details>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="item"><span class="t">BEng Honours Project: Vertical Roll-Bending Equipment for Thin-Walled Rings</span><span class="when">2025 – 2026</span>
+        <p class="d">Structural design and mechanical simulation of roll-bending equipment for thin-walled rings. <a href="assets/reports/honours_project.pdf" target="_blank" rel="noopener">Report</a></p></div>
+      <div class="item"><span class="t">IntentCompass: Conversational Product Search Agent (TikTok TechJam 2026)</span><span class="when">Aug – Sep 2026</span>
+        <p class="d">Multi-turn shopping agent over a 50,000-item catalogue; I worked on intent and failure analysis, reproducibility checks and evaluation.</p></div>
+      <div class="item"><span class="t">Ni/n-ZnO/Ni UV Photodetector</span><span class="when">Feb – Apr 2025</span>
+        <p class="d">Fabricated by RF sputtering, UV lithography and lift-off; traced a 440 nm cutoff drift to process defects. <a href="assets/reports/uv_photodetector_report.pdf" target="_blank" rel="noopener">Report</a></p></div>
+      <div class="item"><span class="t">Intelligent Firefighting Vehicle</span><span class="when">Sep 2024 – Jan 2025</span>
+        <p class="d">SolidWorks and ANSYS design, a custom PCB and Mbed control firmware, validated on a working prototype. <a href="assets/reports/firefighting_vehicle_report.pdf" target="_blank" rel="noopener">Report</a></p></div>
+      <div class="item"><span class="t">Lightweight Virtual Try-On System</span><span class="when">Feb – Jun 2024</span>
+        <p class="d">Pose-aware garment alignment with a slimmed CP-VTON+, running GPU-free via OpenVINO. <a href="assets/reports/virtual_tryon_deck.pdf" target="_blank" rel="noopener">Slides</a></p></div>
+      <div class="item"><span class="t">Mechanical Clock Design</span><span class="when">2024</span>
+        <p class="d">Design, assembly and testing of a mechanical clock (team design project). <a href="assets/reports/mechanical_clock_report.pdf" target="_blank" rel="noopener">Report</a></p></div>
+      <div class="item"><span class="t">Waste Sorting at Tourist Attractions: Field Study</span><span class="when">Sep – Dec 2023</span>
+        <p class="d">Questionnaires and K-means clustering across Changsha tourist sites; Hunan Provincial Third Prize. <a href="assets/certs/hunan_provincial_third_prize.jpg" target="_blank" rel="noopener">Certificate</a></p></div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="item"><span class="t">Intern, AI Institute, CAICT</span><span class="when">Jan – Mar 2026</span>
+        <p class="d">Research on regional AI data ecosystems (dataset development in Ningbo, data annotation in Shenyang); supported the WG2/WG5 joint meetings and the Fangsheng Intelligent Testing Seminar.</p></div>
+      <div class="item"><span class="t">Intern, Changsha Jingjia Microelectronics</span><span class="when">Oct – Dec 2025</span>
+        <p class="d">Semiconductor process and test-data analysis; hands-on training in packaging, testing and reliability.</p></div>
+      <div class="item"><span class="t">Volunteer, Interpreter &amp; Opening-Ceremony Emcee, ICAMMT &amp; ICMMP</span><span class="when">2025 – 2026</span>
+        <p class="d">Presenter logistics and on-site interpretation at international conferences. <a href="assets/certs/icammt_volunteer.pdf" target="_blank" rel="noopener">Certificate</a></p></div>
+      <div class="item"><span class="t">Publicity Officer, Student Union, Dundee International Institute</span><span class="when">2022 – 2024</span>
+        <p class="d">Wrote and edited 20+ articles; organised practical-skills workshops.</p></div>
+    </section>
+
+    <section id="education">
+      <h2>Education &amp; Honours</h2>
+      <div class="item"><span class="t">National University of Singapore</span><span class="when">2026 – present</span>
+        <p class="d">MSc Mechanical Engineering</p></div>
+      <div class="item"><span class="t">University of Dundee</span><span class="when">2022 – 2026</span>
+        <p class="d">BEng (Hons) Mechanical Engineering, <b>First Class Honours</b></p></div>
+      <div class="item"><span class="t">Central South University · Dundee International Institute</span><span class="when">2022 – 2026</span>
+        <p class="d">BEng Mechanical Design, Manufacturing &amp; Automation · GPA 86.33/100</p></div>
+      <div class="item"><span class="t">Summer Research Master Class in British Science</span><span class="when">Aug 2024</span>
+        <p class="d">Avaline School programme held at the University of Cambridge Department of Engineering. <a href="assets/certs/cambridge_summer.pdf" target="_blank" rel="noopener">Certificate</a></p></div>
+
+      <ul class="plain" style="margin-top:18px;">
+        <li>Hunan Provincial Third Prize, 1st Hunan College Student Energy Saving &amp; Emission Reduction Competition (2023)</li>
+        <li>Third-Class Scholarship (2022–2023) and Special Scholarship, Central South University <a href="assets/certs/csu_scholarship.jpg" target="_blank" rel="noopener">Certificate</a></li>
+        <li>Languages: Mandarin (native), English (IELTS 6.5, CET-6)</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Open to <b>PhD positions</b>, research internships and full-time roles in AI &amp; data, semiconductor and engineering.</p>
+    <p>Email: <a href="mailto:xianyuncheng@u.nus.edu">xianyuncheng@u.nus.edu</a> · <a href="mailto:xianyuncheng0909@gmail.com">xianyuncheng0909@gmail.com</a> · <a href="https://www.linkedin.com/in/xianyuninnus" target="_blank" rel="noopener">LinkedIn</a></p>
+    <p>© 2026 Xianyun Cheng</p>
+  </footer>
+</body>
+</html>
