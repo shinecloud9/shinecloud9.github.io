@@ -118,6 +118,8 @@
       border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow);}
     .sheet img.cover{width:100%; aspect-ratio:16/8; object-fit:cover; display:block; background:#fff; border-bottom:1px solid var(--line);}
     .sheet .in{padding:22px 26px 24px;}
+    .sheet .vwrap{position:relative; aspect-ratio:16/9; margin:0 0 16px; border-radius:10px; overflow:hidden; background:#000;}
+    .sheet .vwrap iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
     .sheet video{width:100%; max-height:60vh; display:block; border-radius:10px; background:#000; margin:0 0 16px;}
     .sheet .mtop{display:flex; gap:10px; position:sticky; top:0; justify-content:space-between; padding:10px 12px; background:var(--card);
       border-bottom:1px solid var(--line); z-index:2;}
@@ -186,8 +188,8 @@
         <div class="cn">程显云</div>
         <p class="affil"><span class="en">MSc Mechanical Engineering · National University of Singapore</span><span class="zh">新加坡国立大学 · 机械工程硕士（2027 届）</span></p>
 
-        <p class="en">I am an MSc student in Mechanical Engineering at NUS with a First Class Honours BEng. My background covers <b>mechanical design and FEA simulation</b> (SolidWorks, ANSYS), <b>semiconductor process and test-data analysis</b>, and research on <b>LLM testing and reliability</b> with Dr. Tianlin Li (Beihang University) and Dr. Xiaoyu Zhang (NTU), including a co-authored ASE 2026 paper.</p>
-        <p class="zh">新加坡国立大学机械工程硕士在读，本科为中南大学与英国邓迪大学双学位（邓迪一等荣誉学位）。具备<b>机械结构设计与有限元仿真</b>（SolidWorks、ANSYS）、<b>半导体工艺与测试数据分析</b>的工程背景，并在北航 Tianlin Li 老师、NTU Xiaoyu Zhang 老师课题组从事 <b>大模型测试与可靠性</b> 研究，以第二作者在 ASE 2026（CCF-A）发表论文。</p>
+        <p class="en">I am an MSc student in Mechanical Engineering at NUS with a First Class Honours BEng. My background covers <b>mechanical design and FEA simulation</b> (SolidWorks, ANSYS), <b>semiconductor process and test-data analysis</b>, and research experience in <b>LLM testing and reliability</b> (second-author paper at ASE 2026).</p>
+        <p class="zh">新加坡国立大学机械工程硕士在读，本科为中南大学与英国邓迪大学双学位（邓迪一等荣誉学位）。具备<b>机械结构设计与有限元仿真</b>（SolidWorks、ANSYS）、<b>半导体工艺与测试数据分析</b>的工程背景，另有 <b>大模型测试与可靠性</b> 相关科研经历（ASE 2026 第二作者论文）。</p>
 
         <p class="open"><span class="en">🟢 Open to internships (available from 27 Nov 2026) and full-time roles (2027 graduate)</span><span class="zh">🟢 正在寻找实习（2026 年 11 月 27 日起可到岗）与 2027 届全职岗位</span></p>
 
@@ -232,10 +234,8 @@
               <h4>Structural Design and Mechanical Simulation of Vertical Roll-Bending Equipment for Large-Diameter Thin-Walled Rings</h4>
               <p class="meta">BEng Honours Project (individual) · Sep 2025 – Apr 2026</p>
               <ul>
-                <li>Target parts: 12 m diameter rings in 304 stainless steel, 4–10 mm thick and 800–2200 mm wide.</li>
-                <li>Parametric SolidWorks assembly of the uncoiling, roll-bending and cutting units.</li>
-                <li>Strength and stiffness checks: upper-roll (D = 500 mm) deflection 0.24 mm/m; column buckling safety factor 13.7; weld fatigue utilisation 0.70.</li>
-                <li>ANSYS static analysis for 4/6/8/10 mm strip: peak stresses 253.6 / 298.9 / 372.4 / 445.8 MPa, all below 520 MPa.</li>
+                <li>Parametric SolidWorks design of the uncoiling, roll-bending and cutting units for 12 m rings in 304 stainless steel (4–10 mm thick, 800–2200 mm wide).</li>
+                <li>Strength and stiffness checks: upper-roll deflection 0.24 mm/m, column buckling safety factor 13.7, weld fatigue utilisation 0.70; ANSYS peak stresses all below 520 MPa.</li>
                 <li>Explicit transient simulation of the forming process predicted a ring diameter of about 10.84 m (within 10% of target).</li>
               </ul>
             </div>
@@ -243,10 +243,8 @@
               <h4>大直径薄壁圆环立式卷板成形设备结构设计与力学仿真</h4>
               <p class="meta">本科毕业设计（个人项目）· 2025.09 – 2026.04</p>
               <ul>
-                <li>成形对象：直径 12 m、厚 4–10 mm、宽 800–2200 mm 的 304 不锈钢圆环。</li>
-                <li>用 SolidWorks 完成开卷、卷板、切割等单元的参数化装配设计。</li>
-                <li>强度与刚度校核：上辊（D = 500 mm）挠度 0.24 mm/m；立柱屈曲安全系数 13.7；焊缝疲劳利用率 0.70。</li>
-                <li>ANSYS 静力分析：4/6/8/10 mm 板厚下峰值应力分别为 253.6 / 298.9 / 372.4 / 445.8 MPa，均低于 520 MPa。</li>
+                <li>面向直径 12 m、厚 4–10 mm、宽 800–2200 mm 的 304 不锈钢圆环，用 SolidWorks 完成开卷、卷板、切割单元的参数化设计。</li>
+                <li>强度与刚度校核：上辊挠度 0.24 mm/m，立柱屈曲安全系数 13.7，焊缝疲劳利用率 0.70；ANSYS 静力分析峰值应力均低于 520 MPa。</li>
                 <li>显式瞬态仿真预测成形直径约 10.84 m，与目标偏差小于 10%。</li>
               </ul>
             </div>
@@ -268,8 +266,7 @@
               <p class="meta">Manufacturing Project (group) · Dundee International Institute</p>
               <ul>
                 <li>Calculated gear tooth counts so the second, minute and hour hands keep exact 1/60 and 1/12 ratios, with as few shafts as possible.</li>
-                <li>Built and checked the assembly in SolidWorks, exported part profiles to AutoCAD (DXF) and laser-cut them from acrylic.</li>
-                <li>Graham escapement with a gravity drive to regulate time.</li>
+                <li>Built the assembly in SolidWorks, exported profiles to AutoCAD (DXF) and laser-cut them from acrylic; Graham escapement with a gravity drive.</li>
                 <li>Testing: the gear train turned as designed; an escapement design error kept the clock from running, which the report analyses as the main lesson.</li>
               </ul>
             </div>
@@ -278,8 +275,7 @@
               <p class="meta">制造课程设计（小组项目）· 邓迪国际学院</p>
               <ul>
                 <li>计算各级齿轮齿数，使秒针、分针、时针保持 1/60、1/12 的精确传动比，并尽量减少传动轴数量。</li>
-                <li>在 SolidWorks 中完成装配验证，将零件轮廓导出为 DXF 在 AutoCAD 中出图，用亚克力板激光切割。</li>
-                <li>采用格拉汉姆擒纵机构与重力驱动控制走时。</li>
+                <li>SolidWorks 完成装配验证，导出 DXF 在 AutoCAD 出图并激光切割亚克力板；采用格拉汉姆擒纵机构与重力驱动。</li>
                 <li>测试结果：齿轮系按设计正常传动；擒纵机构存在设计误差导致整钟无法持续走时，报告对此做了原因分析与改进总结。</li>
               </ul>
             </div>
@@ -332,8 +328,7 @@
               <p class="meta">Team project (5 members) · Sep 2024 – Jan 2025</p>
               <ul>
                 <li>Designed the chassis, tracks and extinguishing module in SolidWorks; checked key parts in ANSYS Workbench.</li>
-                <li>Designed a PCB integrating 6 functional modules.</li>
-                <li>Implemented PWM speed control, steering, sensor interrupts and fan/pump drive on Mbed.</li>
+                <li>Designed a PCB integrating 6 functional modules; implemented PWM speed control, steering, sensor interrupts and fan/pump drive on Mbed.</li>
                 <li>Integrated and validated Bluetooth remote driving, flame detection and extinguishing on the prototype.</li>
               </ul>
             </div>
@@ -342,8 +337,7 @@
               <p class="meta">团队项目（5 人）· 2024.09 – 2025.01</p>
               <ul>
                 <li>SolidWorks 设计底盘、履带与灭火模块，ANSYS Workbench 校核关键零件。</li>
-                <li>设计集成 6 个功能模块的 PCB。</li>
-                <li>基于 Mbed 实现 PWM 调速、方向控制、传感器中断和风扇水泵驱动。</li>
+                <li>设计集成 6 个功能模块的 PCB；基于 Mbed 实现 PWM 调速、方向控制、传感器中断和风扇水泵驱动。</li>
                 <li>完成蓝牙遥控行驶、火焰检测与灭火功能的样机联调与验证。</li>
               </ul>
             </div>
@@ -355,15 +349,15 @@
           <img src="assets/thumbs/balance.jpg" alt="" loading="lazy" />
           <div class="pb">
             <span class="pt"><span class="en">Two-Wheeled Self-Balancing Car</span><span class="zh">两轮自平衡小车</span></span>
-            <span class="pm"><span class="en">Control project · PID tuning</span><span class="zh">控制项目 · PID 调参</span></span>
+            <span class="pm"><span class="en">Summer Workshop Practice · PID control</span><span class="zh">暑期金工实习 · PID 控制</span></span>
             <span class="ps"><span class="en">Closed-loop PID control keeps the car upright and lets it recover after being pushed.</span><span class="zh">闭环 PID 控制让小车保持直立，被推动后能自行恢复平衡。</span></span>
             <span class="more"><span class="en">Watch the video →</span><span class="zh">观看演示视频 →</span></span>
           </div>
           <div class="detail">
-            <video controls playsinline preload="metadata" poster="assets/thumbs/balance.jpg" src="assets/videos/self_balancing_car.mp4"></video>
+            <video controls muted playsinline preload="metadata" poster="assets/thumbs/balance.jpg" src="assets/videos/self_balancing_car.mp4"></video>
             <div class="en">
               <h4>Two-Wheeled Self-Balancing Car</h4>
-              <p class="meta">Control project · PID tuning</p>
+              <p class="meta">University summer workshop practice (metalworking) project</p>
               <ul>
                 <li>Built a two-wheeled self-balancing car on an Arduino-based controller.</li>
                 <li>Tuned the PID control loop so the car stays upright on its own.</li>
@@ -372,7 +366,7 @@
             </div>
             <div class="zh">
               <h4>两轮自平衡小车</h4>
-              <p class="meta">控制项目 · PID 调参</p>
+              <p class="meta">学校暑期金工实习项目</p>
               <ul>
                 <li>基于 Arduino 控制板搭建两轮自平衡小车。</li>
                 <li>调试 PID 控制回路，使小车能自主保持直立。</li>
@@ -383,7 +377,7 @@
         </div>
       </div>
 
-      <h3 class="group"><span class="en">AI &amp; Data</span><span class="zh">AI 与数据</span></h3>
+      <h3 class="group"><span class="en">Research &amp; Competitions</span><span class="zh">科研与竞赛</span></h3>
       <div class="grid">
         <div class="pcard" role="button" tabindex="0" data-id="ase">
           <img src="assets/thumbs/ase.jpg" alt="" loading="lazy" />
@@ -396,24 +390,20 @@
           <div class="detail" data-cover="assets/airflow_overview.png">
             <div class="en">
               <h4>Not as Sweet by Another Name: An Empirical Study of Format Robustness in LLM Document Workflows</h4>
-              <p class="meta">Xiaoyu Zhang, <b>Xianyun Cheng</b>, Tianlin Li, Yuwei Zheng, Yue Yang, Yang Liu · ASE 2026 (41st IEEE/ACM Int. Conf. on Automated Software Engineering), Munich</p>
+              <p class="meta">Second author · ASE 2026 (41st IEEE/ACM Int. Conf. on Automated Software Engineering), Munich</p>
               <ul>
-                <li>Question: does changing only the file format of the same document change an LLM's decision in medical, financial and other high-stakes tasks?</li>
-                <li>3 metamorphic relations across 4 LLM workflows × 4 real tasks × 4 document formats: 48,000 executions.</li>
+                <li>Studied whether changing only a document's file format changes an LLM's decision in medical, financial and other high-stakes tasks: 3 metamorphic relations, 48,000 executions (4 workflows × 4 tasks × 4 formats).</li>
                 <li>Format changes cut accuracy by up to 53.63% and flipped decisions in over 41% of cases.</li>
-                <li>My part: the lightweight test wrapper and automated experiment pipeline, Jensen–Shannon divergence analysis, and the Vote Aggregation and Format Routing mitigations (up to 44.21% fewer violations).</li>
-                <li>A patent application for the method is in preparation.</li>
+                <li>My part: test wrapper and automated pipeline, Jensen–Shannon divergence analysis, and the Vote Aggregation / Format Routing mitigations (up to 44.21% fewer violations); a related patent application is in progress.</li>
               </ul>
             </div>
             <div class="zh">
               <h4>Not as Sweet by Another Name: An Empirical Study of Format Robustness in LLM Document Workflows</h4>
-              <p class="meta">Xiaoyu Zhang, <b>Xianyun Cheng</b>, Tianlin Li, Yuwei Zheng, Yue Yang, Yang Liu · ASE 2026（CCF-A），慕尼黑</p>
+              <p class="meta">第二作者 · ASE 2026（CCF-A），慕尼黑</p>
               <ul>
-                <li>研究问题：在医疗、金融等高风险决策场景中，同一份文档只换文件格式，大模型的判断会不会变？</li>
-                <li>设计 3 条蜕变关系，覆盖 4 个 LLM 工作流 × 4 类真实任务 × 4 种文档格式，共 48,000 次执行。</li>
+                <li>研究医疗、金融等高风险场景中，同一文档只换文件格式是否会改变大模型判断：设计 3 条蜕变关系，共 48,000 次执行（4 工作流 × 4 任务 × 4 格式）。</li>
                 <li>结果：仅改变格式，准确率最高下降 53.63%，超过 41% 的样本决策发生漂移。</li>
-                <li>本人负责：轻量级测试包装器与自动化实验管线、Jensen–Shannon divergence 偏移量化，以及投票聚合、格式路由两种缓解策略（违反率最高降低 44.21%）。</li>
-                <li>相关方法正在申请发明专利。</li>
+                <li>本人负责：测试包装器与自动化实验管线、Jensen–Shannon divergence 偏移量化、投票聚合与格式路由缓解策略（违反率最高降低 44.21%）；相关方法正在申请发明专利。</li>
               </ul>
             </div>
             <div class="acts">
@@ -465,7 +455,8 @@
             <span class="ps"><span class="en">Multi-turn shopping agent over a 50,000-item catalogue.</span><span class="zh">面向约 5 万件商品目录的多轮购物智能体。</span></span>
             <span class="more"><span class="en">Video &amp; repo →</span><span class="zh">视频与代码 →</span></span>
           </div>
-          <div class="detail" data-cover="assets/thumbs/techjam.jpg">
+          <div class="detail">
+            <div class="vwrap"><iframe src="https://www.youtube-nocookie.com/embed/NEJMmaECcLo?start=6&amp;rel=0" title="IntentCompass demo video" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div>
             <div class="en">
               <h4>IntentCompass: Multi-Turn Conversational Product Search Agent</h4>
               <p class="meta">TikTok TechJam 2026 · team member · Aug – Sep 2026</p>
@@ -483,7 +474,7 @@
               </ul>
             </div>
             <div class="acts">
-              <a href="https://www.youtube.com/watch?v=NEJMmaECcLo&amp;t=5s" target="_blank" rel="noopener"><span class="en">Demo video</span><span class="zh">演示视频</span></a>
+              <a href="https://www.youtube.com/watch?v=NEJMmaECcLo&amp;t=6s" target="_blank" rel="noopener"><span class="en">Open on YouTube</span><span class="zh">在 YouTube 打开</span></a>
               <a class="sec" href="https://github.com/fxklp/intentcompass-techjam2026" target="_blank" rel="noopener"><span class="en">GitHub repo</span><span class="zh">GitHub 仓库</span></a>
             </div>
           </div>
@@ -524,14 +515,14 @@
           <img src="assets/thumbs/pv.jpg" alt="" loading="lazy" />
           <div class="pb">
             <span class="pt"><span class="en">Data-Driven PV Power Forecasting</span><span class="zh">数据驱动的光伏发电功率预测</span></span>
-            <span class="pm"><span class="en">Gauss Cup Mathematical Modelling · First Prize · 2024</span><span class="zh">高斯杯数学建模联赛 · 一等奖 · 2024</span></span>
+            <span class="pm"><span class="en">Mathematical Modelling · 2024</span><span class="zh">数学建模 · 2024</span></span>
             <span class="ps"><span class="en">Feature analysis and ML regression for photovoltaic output.</span><span class="zh">影响因素分析与机器学习回归预测光伏出力。</span></span>
             <span class="more"><span class="en">Details &amp; paper →</span><span class="zh">详情与论文 →</span></span>
           </div>
           <div class="detail" data-cover="assets/thumbs/pv.jpg">
             <div class="en">
               <h4>Data-Driven Photovoltaic Power Forecasting</h4>
-              <p class="meta">2024 Gauss Cup Mathematical Modelling League · First Prize</p>
+              <p class="meta">Mathematical modelling competition paper · 2024</p>
               <ul>
                 <li>Cleaned the data, extracted time features and quantified how irradiance, temperature, wind and other factors affect output.</li>
                 <li>Compared linear regression, decision tree, random forest and SVM, evaluated with MSE, RMSE, MAE and R².</li>
@@ -540,7 +531,7 @@
             </div>
             <div class="zh">
               <h4>数据驱动的光伏发电功率预测</h4>
-              <p class="meta">2024 高斯杯数学建模联赛 · 一等奖</p>
+              <p class="meta">数学建模竞赛论文 · 2024</p>
               <ul>
                 <li>完成数据清洗与时间特征提取，定量分析辐照、温度、风速等因素对发电功率的影响。</li>
                 <li>对比线性回归、决策树、随机森林、SVM 等模型，用 MSE、RMSE、MAE、R² 评价。</li>
@@ -588,12 +579,8 @@
         <p class="d"><span class="en">Studied high-quality dataset development in Ningbo and data-annotation practice in Shenyang; prepared agendas and reviewed materials for the WG2/WG5 joint meetings and the Fangsheng Intelligent Testing Seminar.</span><span class="zh">围绕宁波高质量数据集建设与沈阳数据标注实践开展专题调研；参与 WG2/WG5 联合会议与“方升”智测研讨会筹备，负责议程准备与会议材料审阅。</span></p></div>
       <div class="item"><span class="t"><span class="en">Intern, Common Technology Research Institute, Changsha Jingjia Microelectronics Co., Ltd.</span><span class="zh">长沙景嘉微电子股份有限公司 · 共性研究院实习生</span></span><span class="when">2025.10 – 2025.12</span>
         <p class="d"><span class="en">Process analysis, product testing and engineering-data processing for semiconductor manufacturing; training on the packaging lab and production line (back-end manufacturing, integrated test, quality control).</span><span class="zh">参与半导体制造相关的工艺分析、产品测试与工程数据处理，辅助定位潜在工艺异常；参加封装实验室及产线流程培训，理解后道制造、集成测试与质量控制的关系。</span></p></div>
-      <div class="item"><span class="t"><span class="en">Research Member, Tianlin Li's group, Beihang University</span><span class="zh">北京航空航天大学 Tianlin Li 研究团队 · 科研成员</span></span><span class="when"><span class="en">2025.10 – present</span><span class="zh">2025.10 – 至今</span></span>
-        <p class="d"><span class="en">LLM testing and format robustness; ASE 2026 paper (see Projects).</span><span class="zh">大模型测试与格式鲁棒性研究，ASE 2026 论文（见项目）。</span></p></div>
-      <div class="item"><span class="t"><span class="en">Research Member, Yang Liu's group, Nanyang Technological University</span><span class="zh">南洋理工大学 Yang Liu 研究团队 · 科研成员</span></span><span class="when"><span class="en">2026.04 – present</span><span class="zh">2026.04 – 至今</span></span>
-        <p class="d"><span class="en">LLM-based automated game evaluation and testing frameworks.</span><span class="zh">基于大模型的游戏自动评测与测试框架。</span></p></div>
       <div class="item"><span class="t"><span class="en">Volunteer (Interpreter &amp; Opening-Ceremony Emcee), ICAMMT 2025</span><span class="zh">第 11 届 ICAMMT 国际会议志愿者（翻译、开幕式主持）</span></span><span class="when">2025.04</span>
-        <p class="d"><span class="en">Presenter logistics, on-site interpretation and opening-ceremony hosting, Changsha.</span><span class="zh">负责报告人后勤协调、现场翻译与开幕式主持（长沙）。</span> <a href="assets/certs/icammt_volunteer.pdf" target="_blank" rel="noopener"><span class="en">Certificate</span><span class="zh">证书</span></a></p></div>
+        <p class="d"><span class="en">Presenter logistics, on-site interpretation and opening-ceremony hosting, Changsha.</span><span class="zh">负责报告人后勤协调、现场翻译与开幕式主持（长沙）。</span></p></div>
       <div class="item"><span class="t"><span class="en">Publicity Officer, Youth League Committee, Dundee International Institute</span><span class="zh">邓迪国际学院团委宣传部 · 干事</span></span><span class="when">2022.09 – 2023.09</span>
         <p class="d"><span class="en">Wrote and edited 20+ articles for the official account; organised Photoshop workshops.</span><span class="zh">撰写编辑 20+ 篇公众号文章，组织 Photoshop 工作坊。</span></p></div>
     </section>
@@ -609,8 +596,7 @@
 
       <h3 class="group"><span class="en">Awards</span><span class="zh">获奖</span></h3>
       <ul class="plain">
-        <li><span class="en">First Prize, Gauss Cup Mathematical Modelling League (2024)</span><span class="zh">2024 高斯杯数学建模联赛 一等奖</span></li>
-        <li><span class="en">Provincial Second Prize, 3rd National College Students' Technology Innovation &amp; Entrepreneurship Competition (2024)</span><span class="zh">2024 第三届全国大学生技术创新创业大赛 省赛二等奖</span></li>
+        <li><span class="en">University-level incubation project, 3rd National College Students' Technology Innovation &amp; Entrepreneurship Competition (2024)</span><span class="zh">2024 第三届全国大学生技术创新创业大赛 校级培育项目</span></li>
         <li><span class="en">Provincial Third Prize, Hunan College Students' Energy-Saving &amp; Emission-Reduction Competition (2023)</span><span class="zh">湖南省大学生节能减排竞赛 省级三等奖（2023）</span></li>
         <li><span class="en">Provincial Second Prize, National College English Translation Competition (2024)</span><span class="zh">2024 全国大学生英语翻译大赛 省级二等奖</span></li>
         <li><span class="en">Successful Participant, MCM 2024</span><span class="zh">2024 美国大学生数学建模竞赛 Successful Participant</span></li>
@@ -688,7 +674,7 @@
         lastFocus = card; modal.querySelector('[data-close]').focus();
       }
       function hide(){
-        body.querySelectorAll('video').forEach(function(v){ v.pause(); });
+        body.innerHTML = '';
         modal.classList.remove('on'); document.body.style.overflow = '';
         if(lastFocus) lastFocus.focus({preventScroll:true});
       }
