@@ -3,14 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Xianyun Cheng</title>
-  <meta name="description" content="Xianyun Cheng · MSc Mechanical Engineering at NUS · LLM evaluation & robustness research · ASE 2026 paper." />
+  <title>Xianyun Cheng · 程显云</title>
+  <meta name="description" content="Xianyun Cheng · MSc Mechanical Engineering at NUS · mechanical design, semiconductor process & test, LLM testing research · open to internships and full-time roles." />
   <meta property="og:type" content="profile" />
-  <meta property="og:title" content="Xianyun Cheng · NUS" />
-  <meta property="og:description" content="MSc Mechanical Engineering @ NUS · LLM evaluation & robustness research · ASE 2026 paper." />
+  <meta property="og:title" content="Xianyun Cheng · 程显云 · NUS" />
+  <meta property="og:description" content="MSc Mechanical Engineering @ NUS · mechanical design & simulation · semiconductor · LLM testing research (ASE 2026)." />
   <meta property="og:url" content="https://shinecloud9.github.io/card/" />
   <meta property="og:image" content="https://shinecloud9.github.io/assets/og-card.png" />
   <meta name="twitter:card" content="summary_large_image" />
+  <script>
+    (function(){
+      var l = new URLSearchParams(location.search).get('lang');
+      if(l !== 'zh' && l !== 'en'){
+        try { l = localStorage.getItem('lang'); } catch(e) { l = null; }
+      }
+      if(l !== 'zh' && l !== 'en'){ l = /^zh/i.test(navigator.language || '') ? 'zh' : 'en'; }
+      document.documentElement.lang = l;
+    })();
+  </script>
   <style>
     :root{
       --bg:#f7f5f0; --card:#fffdf9; --ink:#1f2328; --muted:#5f6670; --line:#e4ded2;
@@ -22,12 +32,16 @@
     }
     *{box-sizing:border-box}
     html,body{margin:0}
+    html[lang="en"] .zh, html[lang="zh"] .en{display:none !important;}
     body{background:var(--bg); color:var(--ink);
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Roboto,Helvetica,Arial,sans-serif;
       line-height:1.55; -webkit-font-smoothing:antialiased;
       min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px 16px;}
-    .card{width:100%; max-width:440px; background:var(--card); border:1px solid var(--line);
-      border-radius:18px; padding:32px 26px 26px; box-shadow:0 1px 2px rgba(0,0,0,.04),0 12px 32px rgba(0,0,0,.06);}
+    .card{position:relative; width:100%; max-width:440px; background:var(--card); border:1px solid var(--line);
+      border-radius:18px; padding:52px 26px 26px; box-shadow:0 1px 2px rgba(0,0,0,.04),0 12px 32px rgba(0,0,0,.06);}
+    .lang{position:absolute; top:14px; right:14px; font:inherit; font-size:13px; font-weight:600; padding:4px 12px; border-radius:999px;
+      border:1px solid var(--accent); background:transparent; color:var(--accent); cursor:pointer;}
+    .lang:hover{background:var(--accent); color:var(--card);}
     .top{display:flex; align-items:center; gap:16px;}
     .mono{flex:none; width:64px; height:64px; border-radius:50%; background:var(--accent); color:#fff;
       display:flex; align-items:center; justify-content:center;
@@ -44,7 +58,7 @@
     .btns{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:22px;}
     .btn{display:flex; align-items:center; justify-content:center; gap:8px; min-height:46px; padding:10px 12px;
       border-radius:12px; border:1px solid var(--line); background:var(--chip); color:var(--ink);
-      text-decoration:none; font-size:14.5px; font-weight:500;}
+      text-decoration:none; font-size:14.5px; font-weight:500; text-align:center;}
     .btn:hover{border-color:var(--accent);}
     .btn.primary{grid-column:1 / -1; background:var(--accent); border-color:var(--accent); color:#fff;}
     @media (prefers-color-scheme: dark){ .btn.primary{color:#14171c;} }
@@ -54,33 +68,52 @@
 </head>
 <body>
   <main class="card">
+    <button class="lang" type="button" id="langBtn" aria-label="Switch language"><span class="en">中文</span><span class="zh">EN</span></button>
     <div class="top">
       <div class="mono" aria-hidden="true">XC</div>
       <div>
-        <h1>Xianyun Cheng</h1>
-        <div class="cn">程显云</div>
+        <h1><span class="en">Xianyun Cheng</span><span class="zh">程显云</span></h1>
+        <div class="cn"><span class="en">程显云</span><span class="zh">Xianyun Cheng</span></div>
       </div>
     </div>
 
-    <p class="role">MSc Mechanical Engineering · National University of Singapore</p>
-    <p class="tag">Working on LLM testing and the reliability of LLM-based software.</p>
+    <p class="role"><span class="en">MSc Mechanical Engineering · National University of Singapore</span><span class="zh">新加坡国立大学 · 机械工程硕士（2027 届）</span></p>
+    <p class="tag"><span class="en">Mechanical design &amp; simulation · semiconductor process &amp; test · LLM testing research.</span><span class="zh">机械设计与仿真 · 半导体工艺与测试 · 大模型测试研究</span></p>
 
     <ul class="hl">
-      <li><span class="ic">📄</span><span><b>ASE 2026 paper</b> (co-author) on the format robustness of LLM document workflows</span></li>
-      <li><span class="ic">🔬</span><span>AI research with <b>Dr. Tianlin Li</b> (Beihang University) and <b>Dr. Xiaoyu Zhang</b> (NTU)</span></li>
-      <li><span class="ic">⚙️</span><span><b>First Class Honours</b> BEng; semiconductor fabrication, test-data analysis and mechanical design</span></li>
+      <li><span class="ic">⚙️</span><span class="en"><b>First Class Honours</b> BEng; SolidWorks / ANSYS design and FEA projects</span><span class="zh">邓迪大学<b>一等荣誉学位</b>；SolidWorks / ANSYS 结构设计与仿真项目</span></li>
+      <li><span class="ic">🔬</span><span class="en">Semiconductor internship (<b>Jingjia Microelectronics</b>) and UV photodetector fabrication</span><span class="zh"><b>景嘉微</b>半导体实习；紫外光电探测器微纳加工项目</span></li>
+      <li><span class="ic">📄</span><span class="en"><b>ASE 2026</b> paper (2nd author) on LLM testing, with Beihang &amp; NTU</span><span class="zh">北航、NTU 课题组大模型测试研究，<b>ASE 2026</b> 第二作者</span></li>
     </ul>
 
     <div class="btns">
-      <a class="btn primary" href="https://conf.researchr.org/details/ase-2026/ase-2026-research-track/160/Not-as-Sweet-by-Another-Name-An-Empirical-Study-of-Format-Robustness-in-LLM-Document" target="_blank" rel="noopener">📄 Read the ASE 2026 paper</a>
+      <a class="btn primary" href="../#projects" data-home>📂 <span class="en">Projects, reports &amp; papers</span><span class="zh">查看项目作品与报告</span></a>
+      <a class="btn" href="../assets/docs/Xianyun_Cheng_CV.pdf" target="_blank" rel="noopener" data-cv>📄 <span class="en">CV</span><span class="zh">简历</span></a>
+      <a class="btn" href="mailto:xianyuncheng@u.nus.edu">✉️ <span class="en">Email</span><span class="zh">邮箱</span></a>
       <a class="btn" href="https://www.linkedin.com/in/xianyuninnus" target="_blank" rel="noopener">💼 LinkedIn</a>
-      <a class="btn" href="mailto:xianyuncheng@u.nus.edu">✉️ Email</a>
-      <a class="btn" href="../assets/docs/Xianyun_Cheng_CV.pdf" target="_blank" rel="noopener">📄 CV</a>
-      <a class="btn" href="../">🌐 Full homepage</a>
-      <a class="btn wide" href="xianyun-cheng.vcf" download>📇 Save my contact</a>
+      <a class="btn" href="../" data-home>🌐 <span class="en">Full homepage</span><span class="zh">个人主页</span></a>
+      <a class="btn wide" href="xianyun-cheng.vcf" download>📇 <span class="en">Save my contact</span><span class="zh">保存联系人</span></a>
     </div>
 
-    <p class="foot">Open to <b>PhD positions</b>, <b>internships</b> &amp; <b>full-time roles</b> · AI &amp; data · semiconductor · engineering</p>
+    <p class="foot"><span class="en">Open to <b>internships</b> (from 27 Nov 2026) &amp; <b>full-time roles</b> (2027) · Singapore &amp; China</span><span class="zh">正在寻找<b>实习</b>（2026.11.27 起可到岗）与 <b>2027 届全职</b> · 新加坡及国内</span></p>
   </main>
+  <script>
+    (function(){
+      var root = document.documentElement;
+      function setLang(l){
+        root.lang = l;
+        try { localStorage.setItem('lang', l); } catch(e) {}
+        var u = new URL(location.href); u.searchParams.set('lang', l);
+        history.replaceState(null, '', u.pathname + u.search + u.hash);
+        document.querySelectorAll('a[data-home]').forEach(function(a){
+          var hash = a.getAttribute('href').split('#')[1];
+          a.href = '../?lang=' + l + (hash ? '#' + hash : '');
+        });
+        document.querySelector('a[data-cv]').href = l === 'zh' ? '../assets/docs/Xianyun_Cheng_CV_zh.pdf' : '../assets/docs/Xianyun_Cheng_CV.pdf';
+      }
+      setLang(root.lang);
+      document.getElementById('langBtn').addEventListener('click', function(){ setLang(root.lang === 'zh' ? 'en' : 'zh'); });
+    })();
+  </script>
 </body>
 </html>

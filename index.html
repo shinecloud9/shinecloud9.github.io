@@ -3,140 +3,199 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Xianyun Cheng</title>
-  <meta name="description" content="Xianyun Cheng, MSc Mechanical Engineering at the National University of Singapore. Research on LLM testing and the reliability of LLM-based software." />
+  <title>Xianyun Cheng · 程显云</title>
+  <meta name="description" content="Xianyun Cheng (程显云), MSc Mechanical Engineering at NUS. Mechanical design, FEA simulation, semiconductor process and test, plus research on LLM testing (ASE 2026). Open to internships and full-time roles." />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Xianyun Cheng · Personal Academic Homepage" />
-  <meta property="og:description" content="MSc Mechanical Engineering @ NUS · LLM testing &amp; reliability research · ASE 2026 paper." />
+  <meta property="og:title" content="Xianyun Cheng · 程显云 · NUS Mechanical Engineering" />
+  <meta property="og:description" content="Mechanical design & simulation · semiconductor process & test · LLM testing research (ASE 2026). Open to internships and full-time roles." />
   <meta property="og:url" content="https://shinecloud9.github.io/" />
   <meta property="og:image" content="https://shinecloud9.github.io/assets/og-card.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
+  <script>
+    // Pick the language before first paint: ?lang= > saved choice > browser language
+    (function(){
+      var l = new URLSearchParams(location.search).get('lang');
+      if(l !== 'zh' && l !== 'en'){
+        try { l = localStorage.getItem('lang'); } catch(e) { l = null; }
+      }
+      if(l !== 'zh' && l !== 'en'){ l = /^zh/i.test(navigator.language || '') ? 'zh' : 'en'; }
+      document.documentElement.lang = l;
+    })();
+  </script>
   <style>
     :root{
-      --bg:#f8f6f1; --ink:#1f2328; --body:#3a3f45; --muted:#6b7178; --line:#e3ddd1;
-      --accent:#2c4f6e; --accent-hover:#183448; --tag-bg:#e9eef3;
+      --bg:#f8f6f1; --card:#fffdf9; --ink:#1f2328; --body:#3a3f45; --muted:#6b7178; --line:#e3ddd1;
+      --accent:#2c4f6e; --accent-hover:#183448; --tag-bg:#e9eef3; --shadow:0 1px 2px rgba(0,0,0,.04),0 10px 28px rgba(0,0,0,.07);
     }
     @media (prefers-color-scheme: dark){
-      :root{ --bg:#15181c; --ink:#ecebe7; --body:#cfd2d6; --muted:#979da5; --line:#2b3138;
-             --accent:#9cbad8; --accent-hover:#c3d6ea; --tag-bg:#22303d; }
+      :root{ --bg:#15181c; --card:#1c2128; --ink:#ecebe7; --body:#cfd2d6; --muted:#979da5; --line:#2b3138;
+             --accent:#9cbad8; --accent-hover:#c3d6ea; --tag-bg:#22303d; --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 28px rgba(0,0,0,.35); }
     }
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    html{scroll-behavior:smooth; scroll-padding-top:64px}
     body{margin:0; background:var(--bg); color:var(--body);
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"PingFang SC","Microsoft YaHei",sans-serif;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
       font-size:16px; line-height:1.7; -webkit-font-smoothing:antialiased;}
+    html[lang="en"] .zh, html[lang="zh"] .en{display:none !important;}
     a{color:var(--accent); text-decoration:none;}
     a:hover{color:var(--accent-hover); text-decoration:underline; text-underline-offset:3px;}
-    .serif{font-family:Georgia,"Times New Roman",serif;}
 
-    header.nav{position:sticky; top:0; z-index:10; background:var(--bg); border-bottom:1px solid var(--line);}
-    .nav-in{max-width:880px; margin:0 auto; padding:14px 24px; display:flex; justify-content:space-between; align-items:center; gap:16px;}
-    .brand{font-family:Georgia,serif; font-size:18px; color:var(--ink); letter-spacing:.02em;}
+    header.nav{position:sticky; top:0; z-index:20; background:var(--bg); border-bottom:1px solid var(--line);}
+    .nav-in{max-width:920px; margin:0 auto; padding:12px 24px; display:flex; justify-content:space-between; align-items:center; gap:16px;}
+    .brand{font-family:Georgia,serif; font-size:18px; color:var(--ink); letter-spacing:.02em; white-space:nowrap;}
     .brand:hover{text-decoration:none; color:var(--ink);}
-    .nav-in nav{display:flex; gap:20px; flex-wrap:wrap; font-size:14px;}
-    .nav-in nav a{color:var(--muted);}
-    .nav-in nav a:hover{color:var(--ink); text-decoration:none;}
+    .nav-r{display:flex; align-items:center; gap:20px;}
+    .nav-r nav{display:flex; gap:18px; flex-wrap:wrap; font-size:14px;}
+    .nav-r nav a{color:var(--muted);}
+    .nav-r nav a:hover{color:var(--ink); text-decoration:none;}
+    .lang{font:inherit; font-size:13.5px; font-weight:600; padding:5px 12px; border-radius:999px; border:1px solid var(--accent);
+      background:transparent; color:var(--accent); cursor:pointer; white-space:nowrap;}
+    .lang:hover{background:var(--accent); color:var(--bg);}
 
-    main{max-width:880px; margin:0 auto; padding:0 24px 64px;}
+    main{max-width:920px; margin:0 auto; padding:0 24px 40px;}
     section{padding:44px 0; border-bottom:1px solid var(--line);}
     section:last-of-type{border-bottom:none;}
-    h2{font-family:Georgia,serif; font-weight:400; font-size:28px; color:var(--ink); margin:0 0 22px;}
+    h2{font-family:Georgia,"Songti SC",serif; font-weight:400; font-size:28px; color:var(--ink); margin:0 0 8px;}
+    .sub{color:var(--muted); font-size:14.5px; margin:0 0 22px;}
+    h3.group{font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); font-weight:600; margin:28px 0 14px;}
 
-    /* About */
-    .hero{display:grid; grid-template-columns:1fr 200px; gap:44px; align-items:start; padding-top:56px;}
+    /* Hero */
+    .hero{display:grid; grid-template-columns:1fr 190px; gap:44px; align-items:start; padding-top:52px;}
     .eyebrow{font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); margin:0 0 10px;}
     h1{font-family:Georgia,serif; font-weight:400; font-size:46px; line-height:1.1; color:var(--ink); margin:0;}
     .cn{font-size:18px; color:var(--muted); margin:6px 0 4px;}
-    .affil{font-size:15px; color:var(--accent); margin:0 0 20px;}
+    .affil{font-size:15px; color:var(--accent); margin:0 0 18px;}
     .hero p{margin:0 0 14px;}
     .photo{display:block; width:100%; height:auto; aspect-ratio:3/4; object-fit:cover; border-radius:10px; border:1px solid var(--line);}
-    .links{display:flex; flex-wrap:wrap; gap:8px 22px; margin-top:18px; font-size:15px;}
+    .open{display:inline-block; font-size:14px; padding:6px 14px; border-radius:8px; background:var(--tag-bg); color:var(--ink); margin:4px 0 4px;}
+    .links{display:flex; flex-wrap:wrap; gap:8px 22px; margin-top:16px; font-size:15px;}
     .links a{border-bottom:1px solid var(--line); padding-bottom:1px;}
     .links a:hover{text-decoration:none; border-color:var(--accent);}
-    ul.interests{margin:4px 0 0; padding-left:20px;}
-    ul.interests li{margin:4px 0;}
 
-    /* News */
-    .news{display:grid; grid-template-columns:110px 1fr; gap:10px 20px; margin:0;}
-    .news dt{font-size:14px; color:var(--muted); padding-top:1px;}
-    .news dd{margin:0;}
+    /* Highlights */
+    .hl{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:0; padding:0; list-style:none;}
+    .hl li{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px;}
+    .hl b{display:block; font-size:22px; font-family:Georgia,serif; font-weight:400; color:var(--ink); line-height:1.2; margin-bottom:4px;}
+    .hl span{font-size:13.5px; color:var(--muted); line-height:1.45; display:block;}
 
-    /* Publication */
-    .pub h3{font-size:18px; font-weight:600; color:var(--ink); margin:0 0 6px; line-height:1.45;}
-    .authors{margin:0;}
-    .authors b{color:var(--ink);}
-    .venue{margin:2px 0 0; color:var(--muted); font-style:italic;}
-    .badge{display:inline-block; font-style:normal; font-size:12px; line-height:1.4; font-weight:600;
-      padding:1px 8px; border-radius:999px; background:var(--tag-bg); color:var(--accent); vertical-align:1px; margin-left:6px;}
-    .pub .summary{margin:12px 0 14px;}
-    .pub figure{margin:0 0 14px;}
-    .pub figure img{width:100%; height:auto; border:1px solid var(--line); border-radius:8px; background:#fff;}
-    .btns{display:flex; flex-wrap:wrap; gap:8px;}
-    .btns a, .btns summary{display:inline-block; font-size:13.5px; padding:4px 12px; border:1px solid var(--line); border-radius:6px; color:var(--accent); cursor:pointer; list-style:none;}
-    .btns a:hover, .btns summary:hover{border-color:var(--accent); text-decoration:none;}
-    .btns summary::-webkit-details-marker{display:none;}
-    details.bib{display:contents;}
-    details.bib[open] pre{display:block;}
-    pre{flex-basis:100%; margin:6px 0 0; padding:14px; font-size:12.5px; line-height:1.5; overflow-x:auto;
-      background:var(--tag-bg); border-radius:8px; color:var(--body);}
+    /* Project cards */
+    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+    .pcard{display:flex; flex-direction:column; text-align:left; font:inherit; color:inherit; background:var(--card); border:1px solid var(--line);
+      border-radius:12px; overflow:hidden; cursor:pointer; padding:0; transition:transform .15s, box-shadow .15s, border-color .15s;}
+    .pcard:hover, .pcard:focus-visible{transform:translateY(-2px); box-shadow:var(--shadow); border-color:var(--accent); outline:none;}
+    .pcard img{width:100%; aspect-ratio:16/10; object-fit:cover; display:block; background:#fff; border-bottom:1px solid var(--line);}
+    .pcard .pb{padding:12px 14px 14px; display:flex; flex-direction:column; gap:4px; flex:1;}
+    .pcard .pt{font-weight:600; color:var(--ink); line-height:1.4; font-size:15px;}
+    .pcard .pm{font-size:12.5px; color:var(--muted);}
+    .pcard .ps{font-size:13.5px; line-height:1.5; margin-top:2px;}
+    .pcard .more{margin-top:auto; padding-top:8px; font-size:13px; color:var(--accent); font-weight:600;}
+    .pcard .detail{display:none;}
 
-    /* Lists: projects / experience / education */
+    /* Lists */
     .item{display:grid; grid-template-columns:1fr auto; gap:2px 20px; padding:12px 0;}
     .item + .item{border-top:1px dashed var(--line);}
     .item .t{color:var(--ink); font-weight:600;}
     .item .when{font-size:14px; color:var(--muted); white-space:nowrap; text-align:right;}
     .item .d{grid-column:1 / -1; margin:0;}
-    .item .d a{margin-left:4px; font-size:14px;}
-
     ul.plain{margin:0; padding-left:20px;}
     ul.plain li{margin:6px 0;}
+    .skills{display:grid; grid-template-columns:150px 1fr; gap:10px 20px; margin:0;}
+    .skills dt{color:var(--ink); font-weight:600; font-size:15px;}
+    .skills dd{margin:0;}
+    .badge{display:inline-block; font-size:12px; line-height:1.4; font-weight:600; padding:1px 8px; border-radius:999px;
+      background:var(--tag-bg); color:var(--accent); vertical-align:1px; margin-left:6px;}
 
-    footer{max-width:880px; margin:0 auto; padding:28px 24px 48px; border-top:1px solid var(--line); font-size:14px; color:var(--muted);}
+    footer{max-width:920px; margin:0 auto; padding:28px 24px 56px; border-top:1px solid var(--line); font-size:14px; color:var(--muted);}
     footer p{margin:4px 0;}
 
+    /* Modal */
+    .modal{position:fixed; inset:0; z-index:50; display:none; align-items:center; justify-content:center; padding:24px 16px;
+      background:rgba(20,22,26,.55); backdrop-filter:blur(3px);}
+    .modal.on{display:flex;}
+    .sheet{position:relative; width:100%; max-width:720px; max-height:calc(100vh - 48px); overflow:auto; background:var(--card);
+      border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow);}
+    .sheet img.cover{width:100%; aspect-ratio:16/8; object-fit:cover; display:block; background:#fff; border-bottom:1px solid var(--line);}
+    .sheet .in{padding:22px 26px 24px;}
+    .sheet .mtop{display:flex; gap:10px; position:sticky; top:0; justify-content:space-between; padding:10px 12px; background:var(--card);
+      border-bottom:1px solid var(--line); z-index:2;}
+    .mbtn{font:inherit; font-size:14px; padding:6px 14px; border-radius:8px; border:1px solid var(--line); background:var(--bg); color:var(--ink); cursor:pointer;}
+    .mbtn:hover{border-color:var(--accent);}
+    .sheet h4{font-size:21px; color:var(--ink); margin:0 0 4px; line-height:1.35; font-weight:600;}
+    .sheet .meta{color:var(--muted); font-size:14px; margin:0 0 14px;}
+    .sheet ul{padding-left:20px; margin:0 0 16px;}
+    .sheet li{margin:5px 0;}
+    .sheet .acts{display:flex; flex-wrap:wrap; gap:10px; margin-top:6px;}
+    .sheet .acts a{display:inline-block; padding:8px 16px; border-radius:8px; background:var(--accent); color:var(--bg); font-size:14.5px; font-weight:600;}
+    .sheet .acts a.sec{background:transparent; color:var(--accent); border:1px solid var(--accent);}
+    .sheet .acts a:hover{text-decoration:none; opacity:.9;}
+    .note{font-size:13px; color:var(--muted); margin:12px 0 0;}
+
+    /* Floating back-to-top */
+    .fab{position:fixed; right:18px; bottom:18px; z-index:30; display:flex; flex-direction:column; gap:8px; opacity:0; pointer-events:none; transition:opacity .2s;}
+    .fab.on{opacity:1; pointer-events:auto;}
+    .fab a{display:flex; align-items:center; justify-content:center; gap:6px; min-width:46px; height:46px; padding:0 14px; border-radius:23px;
+      background:var(--accent); color:var(--bg); font-size:14px; font-weight:600; box-shadow:var(--shadow);}
+    .fab a:hover{text-decoration:none; opacity:.92;}
+
+    @media (max-width:820px){
+      .grid{grid-template-columns:repeat(2,1fr);}
+      .hl{grid-template-columns:repeat(2,1fr);}
+    }
     @media (max-width:720px){
-      .hero{grid-template-columns:1fr 96px; gap:16px; padding-top:32px;}
+      .hero{grid-template-columns:1fr 96px; gap:16px; padding-top:30px;}
       .hero-photo{padding-top:26px;}
       h1{font-size:32px;}
-      .nav-in nav{display:none;}
-      .news{grid-template-columns:1fr; gap:0 0;}
-      .news dd{margin-bottom:12px;}
+      .nav-r nav{display:none;}
       .item{grid-template-columns:1fr;}
       .item .when{text-align:left;}
+      .skills{grid-template-columns:1fr; gap:2px;}
+      .skills dd{margin-bottom:10px;}
+      .sheet .in{padding:18px 18px 20px;}
+    }
+    @media (max-width:520px){
+      .grid{grid-template-columns:1fr;}
+      main, .nav-in, footer{padding-left:16px; padding-right:16px;}
     }
   </style>
 </head>
 <body>
   <header class="nav">
     <div class="nav-in">
-      <a class="brand" href="#about">Xianyun Cheng</a>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#publications">Publication</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-      </nav>
+      <a class="brand" href="#top"><span class="en">Xianyun Cheng</span><span class="zh">程显云</span></a>
+      <div class="nav-r">
+        <nav>
+          <a href="#projects"><span class="en">Projects</span><span class="zh">项目作品</span></a>
+          <a href="#experience"><span class="en">Experience</span><span class="zh">经历</span></a>
+          <a href="#education"><span class="en">Education</span><span class="zh">教育与荣誉</span></a>
+          <a href="#skills"><span class="en">Skills</span><span class="zh">技能</span></a>
+          <a href="card/"><span class="en">Card</span><span class="zh">名片</span></a>
+        </nav>
+        <button class="lang" type="button" id="langBtn" aria-label="Switch language"><span class="en">中文</span><span class="zh">English</span></button>
+      </div>
     </div>
   </header>
 
-  <main>
+  <main id="top">
     <section id="about" class="hero">
       <div>
-        <p class="eyebrow">A personal academic homepage</p>
+        <p class="eyebrow"><span class="en">Mechanical Engineering · Semiconductor · AI Testing</span><span class="zh">机械工程 · 半导体 · AI 测试</span></p>
         <h1>Xianyun Cheng</h1>
         <div class="cn">程显云</div>
-        <p class="affil">MSc Mechanical Engineering · National University of Singapore</p>
+        <p class="affil"><span class="en">MSc Mechanical Engineering · National University of Singapore</span><span class="zh">新加坡国立大学 · 机械工程硕士（2027 届）</span></p>
 
-        <p>I am an MSc student in Mechanical Engineering at the National University of Singapore. My research focuses on <b>LLM testing</b> and the reliability of LLM-based software. I am fortunate to work with <a href="https://conf.researchr.org/profile/ase-2026/tianlinli" target="_blank" rel="noopener">Dr. Tianlin Li</a> (Beihang University) and <a href="https://conf.researchr.org/profile/ase-2026/xiaoyuzhang" target="_blank" rel="noopener">Dr. Xiaoyu Zhang</a> (NTU).</p>
+        <p class="en">I am an MSc student in Mechanical Engineering at NUS with a First Class Honours BEng. My background covers <b>mechanical design and FEA simulation</b> (SolidWorks, ANSYS), <b>semiconductor process and test-data analysis</b>, and research on <b>LLM testing and reliability</b> with Dr. Tianlin Li (Beihang University) and Dr. Xiaoyu Zhang (NTU), including a co-authored ASE 2026 paper.</p>
+        <p class="zh">新加坡国立大学机械工程硕士在读，本科为中南大学与英国邓迪大学双学位（邓迪一等荣誉学位）。具备<b>机械结构设计与有限元仿真</b>（SolidWorks、ANSYS）、<b>半导体工艺与测试数据分析</b>的工程背景，并在北航 Tianlin Li 老师、NTU Xiaoyu Zhang 老师课题组从事 <b>大模型测试与可靠性</b> 研究，以第二作者在 ASE 2026（CCF-A）发表论文。</p>
+
+        <p class="open"><span class="en">🟢 Open to internships (available from 27 Nov 2026) and full-time roles (2027 graduate)</span><span class="zh">🟢 正在寻找实习（2026 年 11 月 27 日起可到岗）与 2027 届全职岗位</span></p>
 
         <div class="links">
-          <a href="assets/docs/Xianyun_Cheng_CV.pdf" target="_blank" rel="noopener">CV</a>
-          <a href="mailto:xianyuncheng@u.nus.edu">Email</a>
+          <a href="assets/docs/Xianyun_Cheng_CV.pdf" target="_blank" rel="noopener" class="en">CV (PDF)</a>
+          <a href="assets/docs/Xianyun_Cheng_CV_zh.pdf" target="_blank" rel="noopener" class="zh">中文简历（PDF）</a>
+          <a href="mailto:xianyuncheng@u.nus.edu"><span class="en">Email</span><span class="zh">邮箱</span></a>
           <a href="https://www.linkedin.com/in/xianyuninnus" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://arxiv.org/abs/2607.27648" target="_blank" rel="noopener">arXiv</a>
+          <a href="#projects"><span class="en">Projects &amp; reports ↓</span><span class="zh">项目与报告 ↓</span></a>
         </div>
       </div>
       <div class="hero-photo">
@@ -144,90 +203,481 @@
       </div>
     </section>
 
-    <section id="news">
-      <h2>Latest news</h2>
-      <dl class="news">
-        <dt>Oct 2026</dt><dd>Our paper on format robustness of LLM document workflows is presented at <b>ASE 2026</b> in Munich.</dd>
-        <dt>Sep 2026</dt><dd>Started my MSc in Mechanical Engineering at the <b>National University of Singapore</b>.</dd>
-        <dt>Aug 2026</dt><dd>Paper accepted to <b>ASE 2026</b>, the 41st IEEE/ACM International Conference on Automated Software Engineering.</dd>
-        <dt>Jun 2026</dt><dd>Graduated with a <b>First Class Honours</b> BEng (University of Dundee) and a BEng from Central South University.</dd>
-      </dl>
-    </section>
-
-    <section id="publications" class="pub">
-      <h2>Publication</h2>
-      <h3>Not as Sweet by Another Name: An Empirical Study of Format Robustness in LLM Document Workflows</h3>
-      <p class="authors">Xiaoyu Zhang, <b>Xianyun Cheng</b>, Tianlin Li, Yuwei Zheng, Yue Yang, Yang Liu</p>
-      <p class="venue">The 41st IEEE/ACM International Conference on Automated Software Engineering (ASE) · 2026<span class="badge">Accepted</span></p>
-      <p class="summary">A format-aware metamorphic testing framework for LLM document workflows. Across 48,000 executions, changing only the file format cut accuracy by up to 53.63% and flipped decisions in over 41% of cases; lightweight test-time safeguards recovered up to 44.21% of the drift without retraining.</p>
-      <figure><img src="assets/airflow_overview.png" alt="Overview of the format-aware metamorphic testing framework" loading="lazy" /></figure>
-      <div class="btns">
-        <a href="https://conf.researchr.org/details/ase-2026/ase-2026-research-track/160/Not-as-Sweet-by-Another-Name-An-Empirical-Study-of-Format-Robustness-in-LLM-Document" target="_blank" rel="noopener">Paper (ASE 2026)</a>
-        <a href="https://arxiv.org/abs/2607.27648" target="_blank" rel="noopener">arXiv</a>
-        <a href="https://doi.org/10.1145/3832783.3837456" target="_blank" rel="noopener">DOI</a>
-        <a href="https://doi.org/10.5281/zenodo.21696268" target="_blank" rel="noopener">Code &amp; Data</a>
-        <a href="assets/docs/ase2026_slides.pdf" target="_blank" rel="noopener">Slides</a>
-        <a href="assets/docs/ase2026_poster.pdf" target="_blank" rel="noopener">Poster</a>
-        <details class="bib"><summary>BibTeX</summary>
-<pre>@inproceedings{zhang2026notsweet,
-  title     = {Not as Sweet by Another Name: An Empirical Study of
-               Format Robustness in LLM Document Workflows},
-  author    = {Zhang, Xiaoyu and Cheng, Xianyun and Li, Tianlin and
-               Zheng, Yuwei and Yang, Yue and Liu, Yang},
-  booktitle = {Proceedings of the 41st IEEE/ACM International Conference
-               on Automated Software Engineering (ASE)},
-  year      = {2026},
-  doi       = {10.1145/3832783.3837456}
-}</pre></details>
-      </div>
+    <section id="highlights">
+      <ul class="hl">
+        <li><b>ASE 2026</b><span class="en">Co-authored paper (2nd author) at a top software-engineering venue</span><span class="zh">第二作者发表于 CCF-A 软件工程顶会</span></li>
+        <li><b>First Class</b><span class="en">BEng (Hons) Mechanical Engineering, University of Dundee</span><span class="zh">邓迪大学机械工程一等荣誉学士</span></li>
+        <li><b>2 internships</b><span class="en">CAICT AI Institute · Jingjia Microelectronics (semiconductor)</span><span class="zh">中国信通院人工智能研究所 · 景嘉微（半导体）</span></li>
+        <li><b>10 projects</b><span class="en">Mechanical design, FEA, micro-fabrication, embedded control, AI</span><span class="zh">机械设计、有限元、微纳加工、嵌入式控制、AI</span></li>
+      </ul>
     </section>
 
     <section id="projects">
-      <h2>Projects</h2>
-      <div class="item"><span class="t">IntentCompass: Conversational Product Search Agent (TikTok TechJam 2026)</span><span class="when">Aug – Sep 2026</span>
-        <p class="d">Multi-turn shopping agent over a 50,000-item catalogue; I worked on intent and failure analysis, reproducibility checks and evaluation. <a href="https://www.youtube.com/watch?v=NEJMmaECcLo&amp;t=5s" target="_blank" rel="noopener">Video</a> <a href="https://github.com/fxklp/intentcompass-techjam2026" target="_blank" rel="noopener">Repo</a></p></div>
-      <div class="item"><span class="t">Ni/n-ZnO/Ni UV Photodetector</span><span class="when">Feb – Apr 2025</span>
-        <p class="d">Fabricated by RF sputtering, UV lithography and lift-off; traced a 440 nm cutoff drift to process defects. <a href="assets/reports/uv_photodetector_report.pdf" target="_blank" rel="noopener">Report</a></p></div>
-      <div class="item"><span class="t">Intelligent Firefighting Vehicle</span><span class="when">Sep 2024 – Jan 2025</span>
-        <p class="d">SolidWorks and ANSYS design, a custom PCB and Mbed control firmware, validated on a working prototype. <a href="assets/reports/firefighting_vehicle_report.pdf" target="_blank" rel="noopener">Report</a></p></div>
-      <div class="item"><span class="t">Lightweight Virtual Try-On System</span><span class="when">Feb – Jun 2024</span>
-        <p class="d">Pose-aware garment alignment with a slimmed CP-VTON+, running GPU-free via OpenVINO. <a href="assets/reports/virtual_tryon_deck.pdf" target="_blank" rel="noopener">Slides</a></p></div>
-      <div class="item"><span class="t">BEng Honours Project: Vertical Roll-Bending Equipment for Thin-Walled Rings</span><span class="when">2025 – 2026</span>
-        <p class="d">Structural design and mechanical simulation of roll-bending equipment for thin-walled rings. <a href="assets/reports/honours_project.pdf" target="_blank" rel="noopener">Report</a></p></div>
+      <h2><span class="en">Projects &amp; Research</span><span class="zh">项目与科研</span></h2>
+      <p class="sub"><span class="en">Click any card for details, reports, papers and videos.</span><span class="zh">点击卡片查看详情、报告、论文和视频。</span></p>
+
+      <h3 class="group"><span class="en">Engineering</span><span class="zh">工程项目</span></h3>
+      <div class="grid">
+        <div class="pcard" role="button" tabindex="0" data-id="honours">
+          <img src="assets/thumbs/honours.jpg" alt="" loading="lazy" />
+          <div class="pb">
+            <span class="pt"><span class="en">Vertical Roll-Bending Equipment for Thin-Walled Rings</span><span class="zh">大直径薄壁圆环立式卷板成形设备</span></span>
+            <span class="pm"><span class="en">BEng Honours Project · 2025–2026</span><span class="zh">本科毕业设计 · 2025–2026</span></span>
+            <span class="ps"><span class="en">Structural design and FEA of forming equipment for 12 m stainless-steel rings.</span><span class="zh">12 m 不锈钢圆环成形设备的结构设计与力学仿真。</span></span>
+            <span class="more"><span class="en">Details &amp; report →</span><span class="zh">详情与报告 →</span></span>
+          </div>
+          <div class="detail" data-cover="assets/thumbs/honours.jpg">
+            <div class="en">
+              <h4>Structural Design and Mechanical Simulation of Vertical Roll-Bending Equipment for Large-Diameter Thin-Walled Rings</h4>
+              <p class="meta">BEng Honours Project (individual) · Sep 2025 – Apr 2026</p>
+              <ul>
+                <li>Target parts: 12 m diameter rings in 304 stainless steel, 4–10 mm thick and 800–2200 mm wide.</li>
+                <li>Parametric SolidWorks assembly of the uncoiling, roll-bending and cutting units.</li>
+                <li>Strength and stiffness checks: upper-roll (D = 500 mm) deflection 0.24 mm/m; column buckling safety factor 13.7; weld fatigue utilisation 0.70.</li>
+                <li>ANSYS static analysis for 4/6/8/10 mm strip: peak stresses 253.6 / 298.9 / 372.4 / 445.8 MPa, all below 520 MPa.</li>
+                <li>Explicit transient simulation of the forming process predicted a ring diameter of about 10.84 m (within 10% of target).</li>
+              </ul>
+            </div>
+            <div class="zh">
+              <h4>大直径薄壁圆环立式卷板成形设备结构设计与力学仿真</h4>
+              <p class="meta">本科毕业设计（个人项目）· 2025.09 – 2026.04</p>
+              <ul>
+                <li>成形对象：直径 12 m、厚 4–10 mm、宽 800–2200 mm 的 304 不锈钢圆环。</li>
+                <li>用 SolidWorks 完成开卷、卷板、切割等单元的参数化装配设计。</li>
+                <li>强度与刚度校核：上辊（D = 500 mm）挠度 0.24 mm/m；立柱屈曲安全系数 13.7；焊缝疲劳利用率 0.70。</li>
+                <li>ANSYS 静力分析：4/6/8/10 mm 板厚下峰值应力分别为 253.6 / 298.9 / 372.4 / 445.8 MPa，均低于 520 MPa。</li>
+                <li>显式瞬态仿真预测成形直径约 10.84 m，与目标偏差小于 10%。</li>
+              </ul>
+            </div>
+            <div class="acts"><a href="assets/reports/honours_project.pdf" target="_blank" rel="noopener"><span class="en">Full report (PDF)</span><span class="zh">查看完整报告（PDF）</span></a></div>
+          </div>
+        </div>
+
+        <div class="pcard" role="button" tabindex="0" data-id="clock">
+          <img src="assets/thumbs/clock.jpg" alt="" loading="lazy" />
+          <div class="pb">
+            <span class="pt"><span class="en">Mechanical Clock: Gear Train &amp; Escapement</span><span class="zh">机械钟设计制造：齿轮系与擒纵机构</span></span>
+            <span class="pm"><span class="en">Manufacturing Project · group</span><span class="zh">制造课程设计 · 小组项目</span></span>
+            <span class="ps"><span class="en">Multi-stage gear train for exact 1/60 and 1/12 hand ratios, laser-cut in acrylic.</span><span class="zh">多级齿轮系实现 1/60、1/12 精确传动比，亚克力激光切割制作。</span></span>
+            <span class="more"><span class="en">Details &amp; report →</span><span class="zh">详情与报告 →</span></span>
+          </div>
+          <div class="detail" data-cover="assets/thumbs/clock.jpg">
+            <div class="en">
+              <h4>Mechanical Clock Design Project</h4>
+              <p class="meta">Manufacturing Project (group) · Dundee International Institute</p>
+              <ul>
+                <li>Calculated gear tooth counts so the second, minute and hour hands keep exact 1/60 and 1/12 ratios, with as few shafts as possible.</li>
+                <li>Built and checked the assembly in SolidWorks, exported part profiles to AutoCAD (DXF) and laser-cut them from acrylic.</li>
+                <li>Graham escapement with a gravity drive to regulate time.</li>
+                <li>Testing: the gear train turned as designed; an escapement design error kept the clock from running, which the report analyses as the main lesson.</li>
+              </ul>
+            </div>
+            <div class="zh">
+              <h4>机械钟设计制造项目</h4>
+              <p class="meta">制造课程设计（小组项目）· 邓迪国际学院</p>
+              <ul>
+                <li>计算各级齿轮齿数，使秒针、分针、时针保持 1/60、1/12 的精确传动比，并尽量减少传动轴数量。</li>
+                <li>在 SolidWorks 中完成装配验证，将零件轮廓导出为 DXF 在 AutoCAD 中出图，用亚克力板激光切割。</li>
+                <li>采用格拉汉姆擒纵机构与重力驱动控制走时。</li>
+                <li>测试结果：齿轮系按设计正常传动；擒纵机构存在设计误差导致整钟无法持续走时，报告对此做了原因分析与改进总结。</li>
+              </ul>
+            </div>
+            <div class="acts"><a href="assets/reports/mechanical_clock_report.pdf" target="_blank" rel="noopener"><span class="en">Full report (PDF)</span><span class="zh">查看完整报告（PDF）</span></a></div>
+          </div>
+        </div>
+
+        <div class="pcard" role="button" tabindex="0" data-id="uv">
+          <img src="assets/thumbs/uv.jpg" alt="" loading="lazy" />
+          <div class="pb">
+            <span class="pt"><span class="en">Ni/n-ZnO/Ni UV Photodetector</span><span class="zh">Ni/n-ZnO/Ni 紫外光电探测器</span></span>
+            <span class="pm"><span class="en">Micro-fabrication · Feb – Apr 2025</span><span class="zh">微纳加工 · 2025.02 – 2025.04</span></span>
+            <span class="ps"><span class="en">RF sputtering, UV lithography and lift-off; cutoff-drift analysis.</span><span class="zh">磁控溅射、紫外光刻与剥离工艺；截止波长偏移分析。</span></span>
+            <span class="more"><span class="en">Details &amp; report →</span><span class="zh">详情与报告 →</span></span>
+          </div>
+          <div class="detail" data-cover="assets/thumbs/uv.jpg">
+            <div class="en">
+              <h4>Design and Process Optimisation of a Ni/n-ZnO/Ni UV Photodetector</h4>
+              <p class="meta">Team project (6 members) · Feb – Apr 2025</p>
+              <ul>
+                <li>Deposited ZnO films by RF magnetron sputtering; patterned interdigitated Ni electrodes with MA6 UV lithography and lift-off.</li>
+                <li>Measured I–V and spectral responsivity; the cutoff wavelength (~440 nm) exceeded the theoretical value.</li>
+                <li>Traced the drift to defect states in the polycrystalline film and proposed process improvements.</li>
+              </ul>
+            </div>
+            <div class="zh">
+              <h4>紫外光电探测器设计与工艺优化（Ni/n-ZnO/Ni）</h4>
+              <p class="meta">团队项目（6 人）· 2025.02 – 2025.04</p>
+              <ul>
+                <li>RF 磁控溅射制备 ZnO 薄膜，MA6 紫外光刻与剥离工艺制作叉指 Ni 电极。</li>
+                <li>完成 I–V 与光谱响应测试，截止波长约 440 nm，超出理论值。</li>
+                <li>将偏移归因于多晶薄膜缺陷态，并提出工艺改进方向。</li>
+              </ul>
+            </div>
+            <div class="acts"><a href="assets/reports/uv_photodetector_report.pdf" target="_blank" rel="noopener"><span class="en">Full report (PDF)</span><span class="zh">查看完整报告（PDF）</span></a></div>
+          </div>
+        </div>
+
+        <div class="pcard" role="button" tabindex="0" data-id="fire">
+          <img src="assets/thumbs/fire.jpg" alt="" loading="lazy" />
+          <div class="pb">
+            <span class="pt"><span class="en">Intelligent Firefighting Vehicle</span><span class="zh">智能消防车</span></span>
+            <span class="pm"><span class="en">Engineering Design Project · Sep 2024 – Jan 2025</span><span class="zh">工程设计项目 · 2024.09 – 2025.01</span></span>
+            <span class="ps"><span class="en">SolidWorks + ANSYS design, custom PCB, Mbed control, working prototype.</span><span class="zh">SolidWorks + ANSYS 设计、自制 PCB、Mbed 控制，完成样机。</span></span>
+            <span class="more"><span class="en">Details &amp; report →</span><span class="zh">详情与报告 →</span></span>
+          </div>
+          <div class="detail" data-cover="assets/thumbs/fire.jpg">
+            <div class="en">
+              <h4>Intelligent Firefighting Vehicle</h4>
+              <p class="meta">Team project (5 members) · Sep 2024 – Jan 2025</p>
+              <ul>
+                <li>Designed the chassis, tracks and extinguishing module in SolidWorks; checked key parts in ANSYS Workbench.</li>
+                <li>Designed a PCB integrating 6 functional modules.</li>
+                <li>Implemented PWM speed control, steering, sensor interrupts and fan/pump drive on Mbed.</li>
+                <li>Integrated and validated Bluetooth remote driving, flame detection and extinguishing on the prototype.</li>
+              </ul>
+            </div>
+            <div class="zh">
+              <h4>智能消防车</h4>
+              <p class="meta">团队项目（5 人）· 2024.09 – 2025.01</p>
+              <ul>
+                <li>SolidWorks 设计底盘、履带与灭火模块，ANSYS Workbench 校核关键零件。</li>
+                <li>设计集成 6 个功能模块的 PCB。</li>
+                <li>基于 Mbed 实现 PWM 调速、方向控制、传感器中断和风扇水泵驱动。</li>
+                <li>完成蓝牙遥控行驶、火焰检测与灭火功能的样机联调与验证。</li>
+              </ul>
+            </div>
+            <div class="acts"><a href="assets/reports/firefighting_vehicle_report.pdf" target="_blank" rel="noopener"><span class="en">Full report (PDF)</span><span class="zh">查看完整报告（PDF）</span></a></div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="group"><span class="en">AI &amp; Data</span><span class="zh">AI 与数据</span></h3>
+      <div class="grid">
+        <div class="pcard" role="button" tabindex="0" data-id="ase">
+          <img src="assets/thumbs/ase.jpg" alt="" loading="lazy" />
+          <div class="pb">
+            <span class="pt"><span class="en">Format Robustness of LLM Document Workflows</span><span class="zh">大模型文档工作流的格式鲁棒性</span></span>
+            <span class="pm"><span class="en">Beihang · ASE 2026 paper (2nd author)</span><span class="zh">北航 · ASE 2026 论文（第二作者）</span><span class="badge">CCF-A</span></span>
+            <span class="ps"><span class="en">Metamorphic testing of LLM workflows in high-stakes decision tasks.</span><span class="zh">面向高风险决策场景的大模型蜕变测试。</span></span>
+            <span class="more"><span class="en">Paper, slides &amp; code →</span><span class="zh">论文、讲稿与代码 →</span></span>
+          </div>
+          <div class="detail" data-cover="assets/airflow_overview.png">
+            <div class="en">
+              <h4>Not as Sweet by Another Name: An Empirical Study of Format Robustness in LLM Document Workflows</h4>
+              <p class="meta">Xiaoyu Zhang, <b>Xianyun Cheng</b>, Tianlin Li, Yuwei Zheng, Yue Yang, Yang Liu · ASE 2026 (41st IEEE/ACM Int. Conf. on Automated Software Engineering), Munich</p>
+              <ul>
+                <li>Question: does changing only the file format of the same document change an LLM's decision in medical, financial and other high-stakes tasks?</li>
+                <li>3 metamorphic relations across 4 LLM workflows × 4 real tasks × 4 document formats: 48,000 executions.</li>
+                <li>Format changes cut accuracy by up to 53.63% and flipped decisions in over 41% of cases.</li>
+                <li>My part: the lightweight test wrapper and automated experiment pipeline, Jensen–Shannon divergence analysis, and the Vote Aggregation and Format Routing mitigations (up to 44.21% fewer violations).</li>
+                <li>A patent application for the method is in preparation.</li>
+              </ul>
+            </div>
+            <div class="zh">
+              <h4>Not as Sweet by Another Name: An Empirical Study of Format Robustness in LLM Document Workflows</h4>
+              <p class="meta">Xiaoyu Zhang, <b>Xianyun Cheng</b>, Tianlin Li, Yuwei Zheng, Yue Yang, Yang Liu · ASE 2026（CCF-A），慕尼黑</p>
+              <ul>
+                <li>研究问题：在医疗、金融等高风险决策场景中，同一份文档只换文件格式，大模型的判断会不会变？</li>
+                <li>设计 3 条蜕变关系，覆盖 4 个 LLM 工作流 × 4 类真实任务 × 4 种文档格式，共 48,000 次执行。</li>
+                <li>结果：仅改变格式，准确率最高下降 53.63%，超过 41% 的样本决策发生漂移。</li>
+                <li>本人负责：轻量级测试包装器与自动化实验管线、Jensen–Shannon divergence 偏移量化，以及投票聚合、格式路由两种缓解策略（违反率最高降低 44.21%）。</li>
+                <li>相关方法正在申请发明专利。</li>
+              </ul>
+            </div>
+            <div class="acts">
+              <a href="https://arxiv.org/abs/2607.27648" target="_blank" rel="noopener"><span class="en">Paper (arXiv)</span><span class="zh">论文（arXiv）</span></a>
+              <a class="sec" href="assets/docs/ase2026_slides.pdf" target="_blank" rel="noopener"><span class="en">Slides</span><span class="zh">讲稿</span></a>
+              <a class="sec" href="assets/docs/ase2026_poster.pdf" target="_blank" rel="noopener"><span class="en">Poster</span><span class="zh">海报</span></a>
+              <a class="sec" href="https://doi.org/10.5281/zenodo.21696268" target="_blank" rel="noopener"><span class="en">Code &amp; data</span><span class="zh">代码与数据</span></a>
+              <a class="sec" href="https://doi.org/10.1145/3832783.3837456" target="_blank" rel="noopener">DOI</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pcard" role="button" tabindex="0" data-id="game">
+          <div class="pb" style="padding-top:16px">
+            <span class="pt"><span class="en">LLM-Based Automated Game Evaluation</span><span class="zh">基于大模型的游戏自动评测</span></span>
+            <span class="pm"><span class="en">NTU, Yang Liu's group · Apr 2026 – present</span><span class="zh">NTU Yang Liu 课题组 · 2026.04 至今</span></span>
+            <span class="ps"><span class="en">Game-playing agents, player-review benchmarks, and LLM evaluators that judge games like players.</span><span class="zh">游玩智能体、玩家评论评测基准，以及像玩家一样评价游戏的大模型评价者。</span></span>
+            <span class="more"><span class="en">Details →</span><span class="zh">详情 →</span></span>
+          </div>
+          <div class="detail">
+            <div class="en">
+              <h4>LLM-Based Automated Game Evaluation</h4>
+              <p class="meta">Research member, Yang Liu's group, Nanyang Technological University · Apr 2026 – present</p>
+              <ul>
+                <li>Integrated open-source game-playing agents into a testing framework that records screenshots, actions and gameplay traces.</li>
+                <li>Built review datasets across 9 game genres and 2 reviewer types, with structured extraction of evaluation aspects.</li>
+                <li>Compared persona-conditioned LLM evaluators against real player feedback, including how they react to gameplay changes.</li>
+              </ul>
+              <p class="note">Two papers from this work are under double-blind review, so they are not linked here.</p>
+            </div>
+            <div class="zh">
+              <h4>基于大模型的游戏自动评测</h4>
+              <p class="meta">南洋理工大学 Yang Liu 课题组 · 科研成员 · 2026.04 至今</p>
+              <ul>
+                <li>整合开源游玩智能体搭建测试框架，记录截图、动作与游玩轨迹。</li>
+                <li>构建覆盖 9 类游戏、2 类评论者的评论数据集，并做结构化评价维度抽取。</li>
+                <li>对比基于角色设定的大模型评价者与真实玩家反馈，包括对游戏机制改动的反应。</li>
+              </ul>
+              <p class="note">相关两篇论文处于双盲评审中，暂不公开链接。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pcard" role="button" tabindex="0" data-id="techjam">
+          <img src="assets/thumbs/techjam.jpg" alt="" loading="lazy" />
+          <div class="pb">
+            <span class="pt"><span class="en">IntentCompass: Conversational Product Search Agent</span><span class="zh">IntentCompass 多轮对话商品搜索智能体</span></span>
+            <span class="pm">TikTok TechJam 2026 · Aug – Sep 2026</span>
+            <span class="ps"><span class="en">Multi-turn shopping agent over a 50,000-item catalogue.</span><span class="zh">面向约 5 万件商品目录的多轮购物智能体。</span></span>
+            <span class="more"><span class="en">Video &amp; repo →</span><span class="zh">视频与代码 →</span></span>
+          </div>
+          <div class="detail" data-cover="assets/thumbs/techjam.jpg">
+            <div class="en">
+              <h4>IntentCompass: Multi-Turn Conversational Product Search Agent</h4>
+              <p class="meta">TikTok TechJam 2026 · team member · Aug – Sep 2026</p>
+              <ul>
+                <li>Evaluated intent routing, attribute constraints, context carry-over and dynamic clarification over a ~50,000-item catalogue.</li>
+                <li>Ran Windows reproducibility checks and analysed retrieval deviations and edge-case failures.</li>
+              </ul>
+            </div>
+            <div class="zh">
+              <h4>IntentCompass：多轮对话式商品搜索智能体</h4>
+              <p class="meta">TikTok TechJam 2026 · 团队成员 · 2026.08 – 2026.09</p>
+              <ul>
+                <li>面向约 5 万件商品目录，评测意图路由、属性约束、上下文继承与动态澄清等环节。</li>
+                <li>负责 Windows 环境复现与失败案例分析，定位检索偏差与边界问题。</li>
+              </ul>
+            </div>
+            <div class="acts">
+              <a href="https://www.youtube.com/watch?v=NEJMmaECcLo&amp;t=5s" target="_blank" rel="noopener"><span class="en">Demo video</span><span class="zh">演示视频</span></a>
+              <a class="sec" href="https://github.com/fxklp/intentcompass-techjam2026" target="_blank" rel="noopener"><span class="en">GitHub repo</span><span class="zh">GitHub 仓库</span></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pcard" role="button" tabindex="0" data-id="tryon">
+          <img src="assets/thumbs/tryon.jpg" alt="" loading="lazy" />
+          <div class="pb">
+            <span class="pt"><span class="en">Lightweight Virtual Try-On System</span><span class="zh">轻量化虚拟试衣系统</span></span>
+            <span class="pm"><span class="en">Undergraduate Innovation Programme · Feb – Jun 2024</span><span class="zh">大学生创新创业训练计划 · 2024.02 – 2024.06</span></span>
+            <span class="ps"><span class="en">Pose estimation + slimmed CP-VTON+, CPU-only deployment under 50 MB.</span><span class="zh">姿态估计 + 轻量化 CP-VTON+，CPU 部署，系统小于 50 MB。</span></span>
+            <span class="more"><span class="en">Details &amp; slides →</span><span class="zh">详情与答辩稿 →</span></span>
+          </div>
+          <div class="detail" data-cover="assets/thumbs/tryon.jpg">
+            <div class="en">
+              <h4>Lightweight Virtual Try-On System</h4>
+              <p class="meta">Undergraduate Innovation &amp; Entrepreneurship Training Programme · team member (5 members) · Feb – Jun 2024</p>
+              <ul>
+                <li>Pose estimation and garment alignment with MoveNet + MobileNetV2 + FPN.</li>
+                <li>Slimmed CP-VTON+ with depthwise-separable convolutions.</li>
+                <li>Deployed on CPU with OpenVINO; whole system under 50 MB.</li>
+              </ul>
+            </div>
+            <div class="zh">
+              <h4>轻量化虚拟试衣系统</h4>
+              <p class="meta">大学生创新创业训练计划 · 团队成员（5 人）· 2024.02 – 2024.06</p>
+              <ul>
+                <li>基于 MoveNet + MobileNetV2 + FPN 的姿态估计与服装对齐。</li>
+                <li>使用深度可分离卷积对 CP-VTON+ 做轻量化。</li>
+                <li>OpenVINO CPU 部署，整个系统小于 50 MB。</li>
+              </ul>
+            </div>
+            <div class="acts"><a href="assets/reports/virtual_tryon_deck.pdf" target="_blank" rel="noopener"><span class="en">Slides (PDF)</span><span class="zh">答辩 PPT（PDF）</span></a></div>
+          </div>
+        </div>
+
+        <div class="pcard" role="button" tabindex="0" data-id="pv">
+          <img src="assets/thumbs/pv.jpg" alt="" loading="lazy" />
+          <div class="pb">
+            <span class="pt"><span class="en">Data-Driven PV Power Forecasting</span><span class="zh">数据驱动的光伏发电功率预测</span></span>
+            <span class="pm"><span class="en">Gauss Cup Mathematical Modelling · First Prize · 2024</span><span class="zh">高斯杯数学建模联赛 · 一等奖 · 2024</span></span>
+            <span class="ps"><span class="en">Feature analysis and ML regression for photovoltaic output.</span><span class="zh">影响因素分析与机器学习回归预测光伏出力。</span></span>
+            <span class="more"><span class="en">Details &amp; paper →</span><span class="zh">详情与论文 →</span></span>
+          </div>
+          <div class="detail" data-cover="assets/thumbs/pv.jpg">
+            <div class="en">
+              <h4>Data-Driven Photovoltaic Power Forecasting</h4>
+              <p class="meta">2024 Gauss Cup Mathematical Modelling League · First Prize</p>
+              <ul>
+                <li>Cleaned the data, extracted time features and quantified how irradiance, temperature, wind and other factors affect output.</li>
+                <li>Compared linear regression, decision tree, random forest and SVM, evaluated with MSE, RMSE, MAE and R².</li>
+                <li>Analysed robustness under extreme weather and the sources of prediction error.</li>
+              </ul>
+            </div>
+            <div class="zh">
+              <h4>数据驱动的光伏发电功率预测</h4>
+              <p class="meta">2024 高斯杯数学建模联赛 · 一等奖</p>
+              <ul>
+                <li>完成数据清洗与时间特征提取，定量分析辐照、温度、风速等因素对发电功率的影响。</li>
+                <li>对比线性回归、决策树、随机森林、SVM 等模型，用 MSE、RMSE、MAE、R² 评价。</li>
+                <li>分析极端天气下的稳健性与预测误差来源。</li>
+              </ul>
+            </div>
+            <div class="acts"><a href="assets/reports/pv_power_forecasting.pdf" target="_blank" rel="noopener"><span class="en">Competition paper (PDF, Chinese)</span><span class="zh">竞赛论文（PDF）</span></a></div>
+          </div>
+        </div>
+
+        <div class="pcard" role="button" tabindex="0" data-id="mcm">
+          <img src="assets/thumbs/mcm.jpg" alt="" loading="lazy" />
+          <div class="pb">
+            <span class="pt"><span class="en">Momentum in Tennis: MCM Problem C</span><span class="zh">网球比赛“势头”建模（美赛 C 题）</span></span>
+            <span class="pm"><span class="en">MCM 2024 · Successful Participant</span><span class="zh">2024 美国大学生数学建模竞赛 · Successful Participant</span></span>
+            <span class="ps"><span class="en">Random-forest feature ranking and an improved LSTM on Wimbledon data.</span><span class="zh">随机森林特征筛选 + 改进 LSTM，基于温网比赛数据。</span></span>
+            <span class="more"><span class="en">Details &amp; paper →</span><span class="zh">详情与论文 →</span></span>
+          </div>
+          <div class="detail" data-cover="assets/thumbs/mcm.jpg">
+            <div class="en">
+              <h4>Catch the Flow of a Match with Improved LSTM</h4>
+              <p class="meta">MCM/ICM 2024 · Problem C · Successful Participant</p>
+              <ul>
+                <li>Ranked match attributes with a random forest, then built psychological-stress and physical-stamina models from the selected indicators.</li>
+                <li>Predicted momentum shifts in the 2023 Wimbledon matches with an improved LSTM.</li>
+              </ul>
+            </div>
+            <div class="zh">
+              <h4>Catch the Flow of a Match with Improved LSTM</h4>
+              <p class="meta">2024 美国大学生数学建模竞赛 · C 题 · Successful Participant</p>
+              <ul>
+                <li>用随机森林筛选关键比赛属性，并据此建立心理压力与体能消耗量化模型。</li>
+                <li>用改进 LSTM 预测 2023 温网比赛中的势头变化。</li>
+              </ul>
+            </div>
+            <div class="acts"><a href="assets/reports/mcm_tennis_paper.pdf" target="_blank" rel="noopener"><span class="en">Competition paper (PDF)</span><span class="zh">竞赛论文（PDF）</span></a></div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="experience">
-      <h2>Experience</h2>
-      <div class="item"><span class="t">Intern, AI Institute, CAICT</span><span class="when">Jan – Mar 2026</span>
-        <p class="d">Research on regional AI data ecosystems (dataset development in Ningbo, data annotation in Shenyang); supported the WG2/WG5 joint meetings and the Fangsheng Intelligent Testing Seminar.</p></div>
-      <div class="item"><span class="t">Intern, Changsha Jingjia Microelectronics</span><span class="when">Oct – Dec 2025</span>
-        <p class="d">Semiconductor process and test-data analysis; hands-on training in packaging, testing and reliability.</p></div>
-      <div class="item"><span class="t">Volunteer, Interpreter &amp; Opening-Ceremony Emcee, ICAMMT &amp; ICMMP</span><span class="when">2025 – 2026</span>
-        <p class="d">Presenter logistics and on-site interpretation at international conferences. <a href="assets/certs/icammt_volunteer.pdf" target="_blank" rel="noopener">Certificate</a></p></div>
-      <div class="item"><span class="t">Publicity Officer, Student Union, Dundee International Institute</span><span class="when">2022 – 2024</span>
-        <p class="d">Wrote and edited 20+ articles; organised practical-skills workshops.</p></div>
+      <h2><span class="en">Experience</span><span class="zh">实习与经历</span></h2>
+      <div class="item"><span class="t"><span class="en">Intern, Platform &amp; Engineering Dept., AI Institute, CAICT</span><span class="zh">中国信息通信研究院 人工智能研究所 平台与工程部 · 实习生</span></span><span class="when">2026.01 – 2026.03</span>
+        <p class="d"><span class="en">Studied high-quality dataset development in Ningbo and data-annotation practice in Shenyang; prepared agendas and reviewed materials for the WG2/WG5 joint meetings and the Fangsheng Intelligent Testing Seminar.</span><span class="zh">围绕宁波高质量数据集建设与沈阳数据标注实践开展专题调研；参与 WG2/WG5 联合会议与“方升”智测研讨会筹备，负责议程准备与会议材料审阅。</span></p></div>
+      <div class="item"><span class="t"><span class="en">Intern, Common Technology Research Institute, Changsha Jingjia Microelectronics Co., Ltd.</span><span class="zh">长沙景嘉微电子股份有限公司 · 共性研究院实习生</span></span><span class="when">2025.10 – 2025.12</span>
+        <p class="d"><span class="en">Process analysis, product testing and engineering-data processing for semiconductor manufacturing; training on the packaging lab and production line (back-end manufacturing, integrated test, quality control).</span><span class="zh">参与半导体制造相关的工艺分析、产品测试与工程数据处理，辅助定位潜在工艺异常；参加封装实验室及产线流程培训，理解后道制造、集成测试与质量控制的关系。</span></p></div>
+      <div class="item"><span class="t"><span class="en">Research Member, Tianlin Li's group, Beihang University</span><span class="zh">北京航空航天大学 Tianlin Li 研究团队 · 科研成员</span></span><span class="when"><span class="en">2025.10 – present</span><span class="zh">2025.10 – 至今</span></span>
+        <p class="d"><span class="en">LLM testing and format robustness; ASE 2026 paper (see Projects).</span><span class="zh">大模型测试与格式鲁棒性研究，ASE 2026 论文（见项目）。</span></p></div>
+      <div class="item"><span class="t"><span class="en">Research Member, Yang Liu's group, Nanyang Technological University</span><span class="zh">南洋理工大学 Yang Liu 研究团队 · 科研成员</span></span><span class="when"><span class="en">2026.04 – present</span><span class="zh">2026.04 – 至今</span></span>
+        <p class="d"><span class="en">LLM-based automated game evaluation and testing frameworks.</span><span class="zh">基于大模型的游戏自动评测与测试框架。</span></p></div>
+      <div class="item"><span class="t"><span class="en">Volunteer (Interpreter &amp; Opening-Ceremony Emcee), ICAMMT 2025</span><span class="zh">第 11 届 ICAMMT 国际会议志愿者（翻译、开幕式主持）</span></span><span class="when">2025.04</span>
+        <p class="d"><span class="en">Presenter logistics, on-site interpretation and opening-ceremony hosting, Changsha.</span><span class="zh">负责报告人后勤协调、现场翻译与开幕式主持（长沙）。</span> <a href="assets/certs/icammt_volunteer.pdf" target="_blank" rel="noopener"><span class="en">Certificate</span><span class="zh">证书</span></a></p></div>
+      <div class="item"><span class="t"><span class="en">Publicity Officer, Youth League Committee, Dundee International Institute</span><span class="zh">邓迪国际学院团委宣传部 · 干事</span></span><span class="when">2022.09 – 2023.09</span>
+        <p class="d"><span class="en">Wrote and edited 20+ articles for the official account; organised Photoshop workshops.</span><span class="zh">撰写编辑 20+ 篇公众号文章，组织 Photoshop 工作坊。</span></p></div>
     </section>
 
     <section id="education">
-      <h2>Education &amp; Honours</h2>
-      <div class="item"><span class="t">National University of Singapore</span><span class="when">2026 – present</span>
-        <p class="d">MSc Mechanical Engineering</p></div>
-      <div class="item"><span class="t">University of Dundee</span><span class="when">2022 – 2026</span>
-        <p class="d">BEng (Hons) Mechanical Engineering, <b>First Class Honours</b></p></div>
-      <div class="item"><span class="t">Central South University · Dundee International Institute</span><span class="when">2022 – 2026</span>
-        <p class="d">BEng Mechanical Design, Manufacturing &amp; Automation · GPA 86.33/100</p></div>
+      <h2><span class="en">Education &amp; Honours</span><span class="zh">教育与荣誉</span></h2>
+      <div class="item"><span class="t"><span class="en">National University of Singapore</span><span class="zh">新加坡国立大学</span></span><span class="when">2026 – 2027</span>
+        <p class="d"><span class="en">MSc Mechanical Engineering (expected Aug 2027)</span><span class="zh">机械工程硕士（预计 2027 年 8 月毕业）</span></p></div>
+      <div class="item"><span class="t"><span class="en">University of Dundee</span><span class="zh">英国邓迪大学</span></span><span class="when">2022 – 2026</span>
+        <p class="d"><span class="en">BEng (Hons) Mechanical Engineering, <b>First Class Honours</b></span><span class="zh">机械工程荣誉学士，<b>一等荣誉学位</b></span></p></div>
+      <div class="item"><span class="t"><span class="en">Central South University · Dundee International Institute</span><span class="zh">中南大学 · 邓迪国际学院</span></span><span class="when">2022 – 2026</span>
+        <p class="d"><span class="en">BEng Mechanical Design, Manufacturing &amp; Automation · GPA 86.33/100</span><span class="zh">机械设计制造及其自动化 工学学士 · GPA 86.33/100</span></p></div>
 
-      <ul class="plain" style="margin-top:18px;">
-        <li>Third-Class Scholarship (2022–2023) and Special Scholarship, Central South University</li>
-        <li>Languages: Mandarin (native), English (IELTS 6.5, CET-6)</li>
+      <h3 class="group"><span class="en">Awards</span><span class="zh">获奖</span></h3>
+      <ul class="plain">
+        <li><span class="en">First Prize, Gauss Cup Mathematical Modelling League (2024)</span><span class="zh">2024 高斯杯数学建模联赛 一等奖</span></li>
+        <li><span class="en">Provincial Second Prize, 3rd National College Students' Technology Innovation &amp; Entrepreneurship Competition (2024)</span><span class="zh">2024 第三届全国大学生技术创新创业大赛 省赛二等奖</span></li>
+        <li><span class="en">Provincial Third Prize, Hunan College Students' Energy-Saving &amp; Emission-Reduction Competition (2023)</span><span class="zh">湖南省大学生节能减排竞赛 省级三等奖（2023）</span></li>
+        <li><span class="en">Provincial Second Prize, National College English Translation Competition (2024)</span><span class="zh">2024 全国大学生英语翻译大赛 省级二等奖</span></li>
+        <li><span class="en">Successful Participant, MCM 2024</span><span class="zh">2024 美国大学生数学建模竞赛 Successful Participant</span></li>
+        <li><span class="en">Third-Class Scholarship (2022–2023) and Special Scholarship (2025), Central South University</span><span class="zh">中南大学 2022–2023 学年三等奖学金、院级专项奖学金（2025）</span></li>
       </ul>
+    </section>
+
+    <section id="skills">
+      <h2><span class="en">Skills</span><span class="zh">技能</span></h2>
+      <dl class="skills">
+        <dt><span class="en">Mechanical</span><span class="zh">机械设计与仿真</span></dt>
+        <dd>SolidWorks, AutoCAD, ANSYS Workbench <span class="en">(static, nonlinear, transient)</span><span class="zh">（静力、非线性、瞬态）</span></dd>
+        <dt><span class="en">Semiconductor</span><span class="zh">半导体</span></dt>
+        <dd><span class="en">RF sputtering, UV lithography, lift-off; process and test-data analysis; packaging &amp; test training</span><span class="zh">磁控溅射、紫外光刻、剥离工艺；工艺与测试数据分析；封装与测试产线培训</span></dd>
+        <dt><span class="en">Electronics</span><span class="zh">电子与嵌入式</span></dt>
+        <dd><span class="en">PCB design, Mbed, Arduino</span><span class="zh">PCB 设计、Mbed、Arduino</span></dd>
+        <dt><span class="en">Programming &amp; AI</span><span class="zh">编程与 AI</span></dt>
+        <dd><span class="en">Python, MATLAB, C++; LLM testing and evaluation pipelines; OpenVINO deployment</span><span class="zh">Python、MATLAB、C++；大模型测试与评测管线；OpenVINO 部署</span></dd>
+        <dt><span class="en">Languages</span><span class="zh">语言</span></dt>
+        <dd><span class="en">Mandarin (native); English (IELTS 6.5, CET-6), English-taught BEng and MSc</span><span class="zh">普通话（二级甲等）；英语（IELTS 6.5、CET-6），本科与硕士均为全英文授课</span></dd>
+      </dl>
     </section>
   </main>
 
   <footer>
-    <p>I am currently looking for <b>PhD positions</b>.</p>
-    <p>Email: <a href="mailto:xianyuncheng@u.nus.edu">xianyuncheng@u.nus.edu</a> · <a href="mailto:xianyuncheng0909@gmail.com">xianyuncheng0909@gmail.com</a> · <a href="https://www.linkedin.com/in/xianyuninnus" target="_blank" rel="noopener">LinkedIn</a></p>
+    <p><span class="en">Open to <b>internships</b> (from 27 Nov 2026) and <b>full-time roles</b> (2027 graduate) in Singapore and China.</span><span class="zh">正在寻找 <b>实习</b>（2026.11.27 起可到岗）与 <b>2027 届全职</b> 岗位，新加坡与国内城市均可。</span></p>
+    <p><span class="en">Email</span><span class="zh">邮箱</span>: <a href="mailto:xianyuncheng@u.nus.edu">xianyuncheng@u.nus.edu</a> · <a href="https://www.linkedin.com/in/xianyuninnus" target="_blank" rel="noopener">LinkedIn</a> · <a href="card/"><span class="en">Contact card</span><span class="zh">电子名片</span></a></p>
     <p>© 2026 Xianyun Cheng</p>
   </footer>
+
+  <div class="fab" id="fab">
+    <a href="#top" aria-label="Back to top">↑ <span class="en">Top</span><span class="zh">顶部</span></a>
+  </div>
+
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mtitle">
+    <div class="sheet">
+      <div class="mtop">
+        <button class="mbtn" type="button" data-close>← <span class="en">Back</span><span class="zh">返回</span></button>
+        <button class="mbtn" type="button" data-close aria-label="Close">✕</button>
+      </div>
+      <img class="cover" id="mcover" alt="" />
+      <div class="in" id="mbody"></div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      var root = document.documentElement;
+      function setLang(l){
+        root.lang = l;
+        try { localStorage.setItem('lang', l); } catch(e) {}
+        var u = new URL(location.href); u.searchParams.set('lang', l);
+        history.replaceState(history.state, '', u.pathname + u.search + u.hash);
+        document.querySelectorAll('a[href^="card/"]').forEach(function(a){ a.href = 'card/?lang=' + l; });
+      }
+      setLang(root.lang);
+      document.getElementById('langBtn').addEventListener('click', function(){ setLang(root.lang === 'zh' ? 'en' : 'zh'); });
+
+      // Back-to-top button appears once the reader has scrolled
+      var fab = document.getElementById('fab');
+      function onScroll(){ fab.classList.toggle('on', window.scrollY > 500); }
+      window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+      // Project details open in a modal; the browser/phone back button closes it
+      var modal = document.getElementById('modal'), body = document.getElementById('mbody'), cover = document.getElementById('mcover');
+      var lastFocus = null;
+      function show(card){
+        var d = card.querySelector('.detail');
+        body.innerHTML = d.innerHTML;
+        var c = d.getAttribute('data-cover');
+        if(c){ cover.src = c; cover.style.display = ''; } else { cover.removeAttribute('src'); cover.style.display = 'none'; }
+        var h = body.querySelector(root.lang === 'zh' ? '.zh h4' : '.en h4'); if(h) h.id = 'mtitle';
+        modal.classList.add('on'); document.body.style.overflow = 'hidden';
+        modal.querySelector('.sheet').scrollTop = 0;
+        lastFocus = card; modal.querySelector('[data-close]').focus();
+      }
+      function hide(){
+        modal.classList.remove('on'); document.body.style.overflow = '';
+        if(lastFocus) lastFocus.focus({preventScroll:true});
+      }
+      function openById(id){ var c = document.querySelector('.pcard[data-id="' + id + '"]'); if(c){ show(c); return true; } return false; }
+
+      document.querySelectorAll('.pcard').forEach(function(card){
+        function open(){
+          history.pushState({modal: card.dataset.id}, '', '#p-' + card.dataset.id);
+          show(card);
+        }
+        card.addEventListener('click', open);
+        card.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); open(); } });
+      });
+      function close(){ if(history.state && history.state.modal){ history.back(); } else { hide(); history.replaceState(null, '', location.pathname + location.search + '#projects'); } }
+      modal.addEventListener('click', function(e){ if(e.target === modal || e.target.closest('[data-close]')) close(); });
+      document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && modal.classList.contains('on')) close(); });
+      window.addEventListener('popstate', function(e){
+        if(e.state && e.state.modal){ openById(e.state.modal); } else if(modal.classList.contains('on')){ hide(); }
+      });
+      // Deep link: /#p-honours opens that project directly
+      var m = location.hash.match(/^#p-(\w+)$/); if(m) openById(m[1]);
+    })();
+  </script>
 </body>
 </html>
