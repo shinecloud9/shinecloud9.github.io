@@ -118,6 +118,7 @@
       border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow);}
     .sheet img.cover{width:100%; aspect-ratio:16/8; object-fit:cover; display:block; background:#fff; border-bottom:1px solid var(--line);}
     .sheet .in{padding:22px 26px 24px;}
+    .sheet video{width:100%; max-height:60vh; display:block; border-radius:10px; background:#000; margin:0 0 16px;}
     .sheet .mtop{display:flex; gap:10px; position:sticky; top:0; justify-content:space-between; padding:10px 12px; background:var(--card);
       border-bottom:1px solid var(--line); z-index:2;}
     .mbtn{font:inherit; font-size:14px; padding:6px 14px; border-radius:8px; border:1px solid var(--line); background:var(--bg); color:var(--ink); cursor:pointer;}
@@ -208,7 +209,7 @@
         <li><b>ASE 2026</b><span class="en">Co-authored paper (2nd author) at a top software-engineering venue</span><span class="zh">第二作者发表于 CCF-A 软件工程顶会</span></li>
         <li><b>First Class</b><span class="en">BEng (Hons) Mechanical Engineering, University of Dundee</span><span class="zh">邓迪大学机械工程一等荣誉学士</span></li>
         <li><b>2 internships</b><span class="en">CAICT AI Institute · Jingjia Microelectronics (semiconductor)</span><span class="zh">中国信通院人工智能研究所 · 景嘉微（半导体）</span></li>
-        <li><b>10 projects</b><span class="en">Mechanical design, FEA, micro-fabrication, embedded control, AI</span><span class="zh">机械设计、有限元、微纳加工、嵌入式控制、AI</span></li>
+        <li><b>11 projects</b><span class="en">Mechanical design, FEA, micro-fabrication, embedded control, AI</span><span class="zh">机械设计、有限元、微纳加工、嵌入式控制、AI</span></li>
       </ul>
     </section>
 
@@ -347,6 +348,37 @@
               </ul>
             </div>
             <div class="acts"><a href="assets/reports/firefighting_vehicle_report.pdf" target="_blank" rel="noopener"><span class="en">Full report (PDF)</span><span class="zh">查看完整报告（PDF）</span></a></div>
+          </div>
+        </div>
+
+        <div class="pcard" role="button" tabindex="0" data-id="balance">
+          <img src="assets/thumbs/balance.jpg" alt="" loading="lazy" />
+          <div class="pb">
+            <span class="pt"><span class="en">Two-Wheeled Self-Balancing Car</span><span class="zh">两轮自平衡小车</span></span>
+            <span class="pm"><span class="en">Control project · PID tuning</span><span class="zh">控制项目 · PID 调参</span></span>
+            <span class="ps"><span class="en">Closed-loop PID control keeps the car upright and lets it recover after being pushed.</span><span class="zh">闭环 PID 控制让小车保持直立，被推动后能自行恢复平衡。</span></span>
+            <span class="more"><span class="en">Watch the video →</span><span class="zh">观看演示视频 →</span></span>
+          </div>
+          <div class="detail">
+            <video controls playsinline preload="metadata" poster="assets/thumbs/balance.jpg" src="assets/videos/self_balancing_car.mp4"></video>
+            <div class="en">
+              <h4>Two-Wheeled Self-Balancing Car</h4>
+              <p class="meta">Control project · PID tuning</p>
+              <ul>
+                <li>Built a two-wheeled self-balancing car on an Arduino-based controller.</li>
+                <li>Tuned the PID control loop so the car stays upright on its own.</li>
+                <li>Demo: the car is pushed by hand and recovers its balance.</li>
+              </ul>
+            </div>
+            <div class="zh">
+              <h4>两轮自平衡小车</h4>
+              <p class="meta">控制项目 · PID 调参</p>
+              <ul>
+                <li>基于 Arduino 控制板搭建两轮自平衡小车。</li>
+                <li>调试 PID 控制回路，使小车能自主保持直立。</li>
+                <li>演示视频：用手推动小车后，它能自行恢复平衡。</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -656,6 +688,7 @@
         lastFocus = card; modal.querySelector('[data-close]').focus();
       }
       function hide(){
+        body.querySelectorAll('video').forEach(function(v){ v.pause(); });
         modal.classList.remove('on'); document.body.style.overflow = '';
         if(lastFocus) lastFocus.focus({preventScroll:true});
       }
