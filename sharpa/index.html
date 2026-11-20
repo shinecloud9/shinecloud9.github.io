@@ -162,11 +162,20 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .loopbox::after{content:"";position:absolute;right:-140px;top:-160px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(0,121,223,.32),transparent 65%);pointer-events:none}
 .loopbox .eyebrow{color:var(--accent-2);position:relative;z-index:1}
 .loopbox h2{font-size:clamp(34px,4.6vw,60px);line-height:1.04;font-weight:800;letter-spacing:-.035em;margin-top:10px;position:relative;z-index:1}
-.strack{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:44px 18px;margin-top:40px}
-.snode{position:relative;margin-top:26px;border:1px solid var(--band-line);background:var(--band-soft);border-radius:var(--r-lg);padding:24px 22px 20px;display:flex;flex-direction:column;gap:10px;min-width:0;transition:border-color .4s,transform .4s,background .4s}
+.shead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;position:relative;z-index:1}
+.sarrows{display:flex;gap:8px;align-items:center}
+.sarrows span{font-size:12.5px;color:var(--band-mute);margin-right:6px}
+.sarrows button{width:40px;height:40px;border-radius:50%;border:1px solid var(--band-line);background:var(--band-soft);color:var(--band-ink);font-size:18px;cursor:pointer;transition:all .25s}
+.sarrows button:hover{border-color:var(--accent-2);color:var(--accent-2)}
+.sviewport{position:relative;z-index:1;margin:32px -48px 0;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 48px,#000 calc(100% - 48px),transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 48px,#000 calc(100% - 48px),transparent 100%)}
+.strack{display:flex;gap:18px;overflow-x:auto;overflow-y:visible;scroll-snap-type:x proximity;padding:40px 48px 10px;cursor:grab;scrollbar-width:none;-webkit-overflow-scrolling:touch;user-select:none}
+.strack::-webkit-scrollbar{display:none}
+.strack.drag{cursor:grabbing;scroll-snap-type:none}
+.strack.drag a{pointer-events:none}
+.snode{position:relative;flex:0 0 clamp(270px,30%,340px);scroll-snap-align:start;border:1px solid var(--band-line);background:var(--band-soft);border-radius:var(--r-lg);padding:24px 22px 20px;display:flex;flex-direction:column;gap:10px;min-width:0;transition:border-color .4s,transform .4s,background .4s}
 .snode::before{content:"";position:absolute;left:26px;top:-33px;width:14px;height:14px;border-radius:50%;background:var(--band);border:2px solid var(--band-line);transition:all .4s;z-index:1}
 .snode::after{content:"";position:absolute;left:42px;right:-44px;top:-27px;height:2px;background:var(--band-line);transition:background .6s}
-.snode:nth-child(3n)::after{display:none}
+.snode:last-child::after{display:none}
 .snode.past::after,.snode.on::after{background:linear-gradient(90deg,var(--accent-2),rgba(124,193,255,.25))}
 .snode.past::before{border-color:var(--accent-2)}
 .snode.on{border-color:var(--accent-2);transform:translateY(-6px);background:#0b1a2b}
@@ -183,8 +192,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .snode li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--accent-2);opacity:.7}
 .snode li b{color:var(--band-ink);font-weight:600}
 .snode li a{color:var(--accent-2);text-decoration:none;font-weight:600;white-space:nowrap}
-@media (max-width:980px){.strack{grid-template-columns:repeat(2,minmax(0,1fr))}.snode:nth-child(3n)::after{display:block}.snode:nth-child(2n)::after{display:none}}
-@media (max-width:620px){.strack{grid-template-columns:1fr;gap:18px}.snode{margin-top:0}.snode::before,.snode::after{display:none}.loopbox{padding:30px 18px}}
+@media (max-width:620px){.loopbox{padding:30px 18px}.sviewport{margin:24px -18px 0}.strack{padding:40px 18px 10px}.sarrows span{display:none}}
 
 /* closing */
 .close{background:var(--band);color:var(--band-ink);padding-block:84px 72px;position:relative;overflow:hidden}
@@ -289,9 +297,11 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   <section id="soft">
     <div class="wrap">
       <div class="loopbox">
-        <span class="eyebrow">Soft skills</span>
-        <h2>软性技能</h2>
-        <div class="strack" id="softgrid"></div>
+        <div class="shead">
+          <div><span class="eyebrow">Soft skills</span><h2>软性技能</h2></div>
+          <div class="sarrows"><span>拖动或滚轮左右浏览</span><button type="button" id="sprev" aria-label="向左">‹</button><button type="button" id="snext" aria-label="向右">›</button></div>
+        </div>
+        <div class="sviewport"><div class="strack" id="softgrid"></div></div>
       </div>
     </div>
   </section>
@@ -346,11 +356,11 @@ var SOFT=[
  {k:'培训与讲解',d:'把技术讲清楚，让没接触过的人也能上手。',ic:'<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><path d="M8 10l2.5 2.5L16 8"/>',
   ev:['<b>ICAMMT 国际会议</b> 担任开幕式主持人，促进组织方、报告人与参会者之间的沟通','<b>团委宣传部</b> 组织 Photoshop 等实用技能工作坊，负责筹备与参与者协调','<b>TechJam</b> 用 demo 视频讲解系统 <a href="https://www.youtube.com/watch?v=NEJMmaECcLo&t=6s" target="_blank" rel="noopener">播放 ↗</a>']},
  {k:'PPT 与视频制作',d:'做项目展示和演示材料，讲究版式和节奏。',ic:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9.5v5l4.5-2.5z"/>',
-  ev:['<b>灵巧手项目</b> 课程展示 PPT <a href="https://shinecloud9.github.io/assets/reports/soft_robotic_hand_slides.pdf" target="_blank" rel="noopener">查看 ↗</a>','<b>TechJam</b> 系统 demo 视频','<b>团委宣传部</b> 为学生活动和学院宣传制作内容']},
+  ev:['<b>灵巧手项目</b> 课程展示 PPT <a href="https://shinecloud9.github.io/assets/reports/soft_robotic_hand_slides.pdf" target="_blank" rel="noopener">查看 ↗</a>','<b>TechJam</b> 3 分钟提交视频的分镜脚本（镜头清单、旁白字幕）和 demo 视频','<b>团委宣传部</b> 为学生活动和学院宣传制作内容']},
  {k:'技术文档与写作',d:'写报告、写文章、审材料，保证内容准确。',ic:'<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>',
-  ev:['<b>团委宣传部</b> 撰写编辑 20 余篇微信公众号文章','<b>课程与毕设</b> 毕业设计、消防车、紫外探测器等完整项目报告','<b>信通院</b> 会议材料审阅与内容核对','<b>景嘉微</b> 参与技术资料整理与工艺分析','<b>信通院</b> 宁波高质量数据集建设、沈阳数据标注实践专题调研，梳理模式与案例差异']},
+  ev:['<b>团委宣传部</b> 撰写编辑 20 余篇微信公众号文章','<b>项目报告</b> 毕业设计、消防车、紫外探测器等完整项目报告','<b>信通院</b> 专题调研报告，会议材料审阅与内容核对']},
  {k:'中英双语',d:'能用英文直接和海外客户、团队沟通。',ic:'<path d="M3 5h10M8 3v2M5 5c0 4 3 7 6 8"/><path d="M11 5c0 4-3 7-7 9"/><path d="M13 21l4-10 4 10M14.5 17h5"/>',
-  ev:['<b>教育</b> 本科和硕士均为全英文授课','<b>证书</b> IELTS 6.5、CET-6','<b>竞赛</b> 2024 全国大学生英语翻译大赛 省级二等奖','<b>ICAMMT 国际会议</b> 担任现场翻译']},
+  ev:['<b>教育与证书</b> 本科和硕士均为全英文授课；IELTS 6.5、CET-6','<b>竞赛</b> 2024 全国大学生英语翻译大赛 省级二等奖','<b>ICAMMT 国际会议</b> 担任现场翻译']},
  {k:'抗压与多线推进',d:'几件事同时推进，遇到不熟悉的领域也能快速调整。',ic:'<path d="M3 12h4l3-8 4 16 3-8h4"/>',
   ev:['<b>并行</b> 2025.10 起北航科研、2026.04 起南洋理工科研同时进行，2026.08–09 参加 TechJam，同时完成 NUS 硕士课程','<b>转方向</b> 从机械设计到 AI 系统测试，再回到机器人与软体灵巧手','<b>交付</b> 北航方向成果以第二作者发表于 ASE 2026']}
 ];
@@ -361,8 +371,24 @@ SOFT.forEach(function(x,n){ var d=el('div','snode'); d.tabIndex=0; var top=el('d
   var nodes=[].slice.call(sg.children),cur=0,paused=false,vis=false;
   function set(i){ cur=i; nodes.forEach(function(n,k){ n.classList.toggle('on',k===i); n.classList.toggle('past',k<i); }); }
   nodes.forEach(function(n,k){ n.addEventListener('mouseenter',function(){paused=true;set(k)}); n.addEventListener('focus',function(){paused=true;set(k)}); n.addEventListener('mouseleave',function(){paused=false}); n.addEventListener('blur',function(){paused=false}); });
+  var idleUntil=0;
+  function poke(){ idleUntil=Date.now()+7000; }
+  function reveal(i){ var n=nodes[i]; var l=n.offsetLeft-48, r=l+n.offsetWidth+96; if(l<sg.scrollLeft||r>sg.scrollLeft+sg.clientWidth) sg.scrollTo({left:Math.max(0,l),behavior:reduce?'auto':'smooth'}); }
   set(0);
-  if(!reduce){ setInterval(function(){ if(!paused&&vis) set((cur+1)%nodes.length); },1900);
+  // drag to scroll
+  var down=false,sx=0,sl=0,moved=false;
+  sg.addEventListener('pointerdown',function(e){ if(e.pointerType!=='mouse') return; down=true; moved=false; sx=e.clientX; sl=sg.scrollLeft; poke(); });
+  addEventListener('pointermove',function(e){ if(!down) return; var dx=e.clientX-sx; if(Math.abs(dx)>4){ moved=true; sg.classList.add('drag'); } sg.scrollLeft=sl-dx; });
+  addEventListener('pointerup',function(){ if(!down) return; down=false; setTimeout(function(){ sg.classList.remove('drag'); },0); });
+  sg.addEventListener('click',function(e){ if(moved){ e.preventDefault(); e.stopPropagation(); moved=false; } },true);
+  // vertical wheel scrolls the row until an end is reached
+  sg.addEventListener('wheel',function(e){ var max=sg.scrollWidth-sg.clientWidth; var d=Math.abs(e.deltaY)>Math.abs(e.deltaX)?e.deltaY:e.deltaX;
+    if((d>0&&sg.scrollLeft<max-1)||(d<0&&sg.scrollLeft>0)){ e.preventDefault(); sg.scrollLeft+=d; poke(); } },{passive:false});
+  sg.addEventListener('touchstart',poke,{passive:true});
+  function step(dir){ var w=nodes[0].offsetWidth+18; sg.scrollBy({left:dir*w,behavior:reduce?'auto':'smooth'}); poke(); }
+  document.getElementById('sprev').onclick=function(){ step(-1); };
+  document.getElementById('snext').onclick=function(){ step(1); };
+  if(!reduce){ setInterval(function(){ if(paused||!vis||Date.now()<idleUntil||down) return; set((cur+1)%nodes.length); reveal(cur); },2200);
     if('IntersectionObserver' in window) new IntersectionObserver(function(es){vis=es[0].isIntersecting}).observe(sg); else vis=true; }
 })();
 
