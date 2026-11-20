@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&family=JetBrains+Mono:wght@500&display=swap">
 <style>
-/* Layout: black hero with project collage -> tool marquee -> Hard skills (hardware / software pillars with project cards) -> Soft skills by ability -> Work habits loop -> quiet closing. */
+/* Layout: black hero with project collage -> tool marquee -> Hard skills (hardware / software pillars with project cards) -> Soft skills as a lit loop of six abilities -> quiet closing. */
 :root{
   color-scheme:dark;
   --bg:#0b0c0f; --ink:#eef1f5; --mute:#98a1ad; --line:#23272e; --soft:#14161a;
@@ -156,46 +156,35 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .awards li{font-size:14px;border:1px solid var(--line);border-radius:999px;padding:7px 14px}
 @media (max-width:700px){.awards{grid-template-columns:1fr;gap:14px}}
 
-/* soft skills */
-#soft{padding-block:110px 40px}
-.softgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.sk{border-radius:var(--r-xl);padding:28px 26px;background:var(--soft);display:flex;flex-direction:column;gap:12px;min-width:0;border:1px solid transparent;transition:transform .35s,border-color .35s,background .35s}
-.sk:hover{transform:translateY(-4px);border-color:var(--accent);background:var(--bg)}
-.sk .ic{width:46px;height:46px;border-radius:14px;background:var(--bg);display:grid;place-items:center;color:var(--accent);border:1px solid var(--line)}
-.sk .ic svg{width:22px;height:22px}
-.sk h3{font-size:21px;line-height:1.3}
-.sk .d{font-size:15px;line-height:1.65}
-.sk ul{list-style:none;margin:2px 0 0;padding:12px 0 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
-.sk li{font-size:13px;color:var(--mute);line-height:1.6;padding-left:14px;position:relative}
-.sk li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.7}
-.sk li b{color:var(--ink);font-weight:600}
-.sk li a{color:var(--accent);text-decoration:none;font-weight:600;white-space:nowrap}
-@media (max-width:980px){.softgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:620px){.softgrid{grid-template-columns:1fr}}
-
-/* habits loop */
-#loop{padding-block:96px}
-.loopbox{background:var(--band);color:var(--band-ink);border-radius:var(--r-xl);padding:48px;position:relative;overflow:hidden}
+/* soft skills (loop style) */
+#soft{padding-block:96px}
+.loopbox{background:var(--band);color:var(--band-ink);border-radius:var(--r-xl);padding:48px;position:relative;overflow:hidden;border:1px solid var(--band-line)}
 .loopbox::after{content:"";position:absolute;right:-140px;top:-160px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(0,121,223,.32),transparent 65%);pointer-events:none}
 .loopbox .eyebrow{color:var(--accent-2);position:relative;z-index:1}
 .loopbox h2{font-size:clamp(34px,4.6vw,60px);line-height:1.04;font-weight:800;letter-spacing:-.035em;margin-top:10px;position:relative;z-index:1}
-.track{position:relative;z-index:1;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:44px;padding-top:34px}
-.rail{position:absolute;left:10%;right:10%;top:8px;height:2px;background:var(--band-line);border-radius:2px}
-.rail i{position:absolute;left:0;top:0;height:2px;width:0;background:var(--accent-2);border-radius:2px;transition:width .7s cubic-bezier(.2,.7,.2,1);box-shadow:0 0 12px rgba(95,178,255,.7)}
-.node{position:relative;border:1px solid var(--band-line);background:var(--band-soft);border-radius:var(--r-lg);padding:22px 20px 20px;display:flex;flex-direction:column;gap:8px;min-width:0;transition:border-color .4s,transform .4s,background .4s}
-.node::before{content:"";position:absolute;left:50%;top:-33px;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:var(--band);border:2px solid var(--band-line);transition:all .4s}
-.node .no{font-family:var(--mono);font-size:12.5px;color:var(--band-mute)}
-.node h3{font-size:22px;font-weight:800}
-.node .what{font-size:14px;color:#c8cfd9}
-.node .ev{font-size:13px;color:var(--band-mute);border-top:1px solid var(--band-line);padding-top:10px;margin-top:auto;line-height:1.65}
-.node a{color:var(--accent-2);text-decoration:none;font-weight:600}
-.node.on{border-color:var(--accent-2);transform:translateY(-6px);background:#0b1a2b}
-.node.on::before{background:var(--accent-2);border-color:var(--accent-2);box-shadow:0 0 0 6px rgba(95,178,255,.18)}
-.node.on .no{color:var(--accent-2)}
-.loopback{position:relative;z-index:1;margin-top:22px;display:flex;align-items:center;gap:10px;color:var(--band-mute);font-size:14px}
-.loopback svg{width:22px;height:22px;flex:none;animation:spin 6s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-@media (max-width:980px){.track{grid-template-columns:1fr;padding-top:0;padding-left:30px}.rail{left:8px;right:auto;top:10px;bottom:10px;width:2px;height:auto}.rail i{width:2px!important;height:var(--h,0)}.node::before{left:-29px;top:24px;margin-left:0}.loopbox{padding:32px 20px}}
+.strack{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:44px 18px;margin-top:40px}
+.snode{position:relative;margin-top:26px;border:1px solid var(--band-line);background:var(--band-soft);border-radius:var(--r-lg);padding:24px 22px 20px;display:flex;flex-direction:column;gap:10px;min-width:0;transition:border-color .4s,transform .4s,background .4s}
+.snode::before{content:"";position:absolute;left:26px;top:-33px;width:14px;height:14px;border-radius:50%;background:var(--band);border:2px solid var(--band-line);transition:all .4s;z-index:1}
+.snode::after{content:"";position:absolute;left:42px;right:-44px;top:-27px;height:2px;background:var(--band-line);transition:background .6s}
+.snode:nth-child(3n)::after{display:none}
+.snode.past::after,.snode.on::after{background:linear-gradient(90deg,var(--accent-2),rgba(124,193,255,.25))}
+.snode.past::before{border-color:var(--accent-2)}
+.snode.on{border-color:var(--accent-2);transform:translateY(-6px);background:#0b1a2b}
+.snode.on::before{background:var(--accent-2);border-color:var(--accent-2);box-shadow:0 0 0 6px rgba(95,178,255,.18)}
+.snode .top{display:flex;align-items:center;justify-content:space-between}
+.snode .no{font-family:var(--mono);font-size:12.5px;color:var(--band-mute)}
+.snode.on .no{color:var(--accent-2)}
+.snode .ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;color:var(--accent-2);background:rgba(59,155,255,.1);border:1px solid rgba(124,193,255,.25)}
+.snode .ic svg{width:20px;height:20px}
+.snode h3{font-size:21px;font-weight:800}
+.snode .d{font-size:14.5px;color:#c8cfd9;line-height:1.65}
+.snode ul{list-style:none;margin:2px 0 0;padding:12px 0 0;border-top:1px solid var(--band-line);display:flex;flex-direction:column;gap:7px}
+.snode li{font-size:13px;color:var(--band-mute);line-height:1.6;padding-left:13px;position:relative}
+.snode li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--accent-2);opacity:.7}
+.snode li b{color:var(--band-ink);font-weight:600}
+.snode li a{color:var(--accent-2);text-decoration:none;font-weight:600;white-space:nowrap}
+@media (max-width:980px){.strack{grid-template-columns:repeat(2,minmax(0,1fr))}.snode:nth-child(3n)::after{display:block}.snode:nth-child(2n)::after{display:none}}
+@media (max-width:620px){.strack{grid-template-columns:1fr;gap:18px}.snode{margin-top:0}.snode::before,.snode::after{display:none}.loopbox{padding:30px 18px}}
 
 /* closing */
 .close{background:var(--band);color:var(--band-ink);padding-block:84px 72px;position:relative;overflow:hidden}
@@ -242,7 +231,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     <nav>
       <a class="anchor" href="#hard">硬性技能</a>
       <a class="anchor" href="#soft">软性技能</a>
-      <a class="anchor" href="#loop">工作习惯</a>
       <a class="pill blue" href="https://shinecloud9.github.io/?lang=zh" target="_blank" rel="noopener">个人主页 <span class="arr">↗</span></a>
     </nav>
   </div>
@@ -300,25 +288,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
   <section id="soft">
     <div class="wrap">
-      <div class="sh"><div><span class="eyebrow">Soft skills</span><h2>软性技能</h2></div><p>按能力分类，下面的小字是支撑经历。</p></div>
-      <div class="softgrid" id="softgrid"></div>
-    </div>
-  </section>
-
-  <section id="loop">
-    <div class="wrap">
       <div class="loopbox">
-        <span class="eyebrow">How I work</span>
-        <h2>工作习惯与流程</h2>
-        <div class="track" id="track">
-          <div class="rail"><i id="railfill"></i></div>
-          <div class="node" tabindex="0"><span class="no">01</span><h3>上手</h3><p class="what">在新环境里，把系统跑起来</p><p class="ev">TechJam 新电脑独立复现<br>消防车先单测、再联调</p></div>
-          <div class="node" tabindex="0"><span class="no">02</span><h3>定位</h3><p class="what">找到它为什么不工作</p><p class="ev">灵巧手受力模型<br>探测器波长偏差分析</p></div>
-          <div class="node" tabindex="0"><span class="no">03</span><h3>验证</h3><p class="what">用数据确认，不靠感觉</p><p class="ev">ASE 48,000 次执行<br>景嘉微产线测试数据</p></div>
-          <div class="node" tabindex="0"><span class="no">04</span><h3>沉淀</h3><p class="what">写下来，下次更快</p><p class="ev">项目记录和复盘习惯<br>会议纪要 · 拆任务 · 复盘</p></div>
-          <div class="node" tabindex="0"><span class="no">05</span><h3>讲清楚</h3><p class="what">培训客户，反馈研发</p><p class="ev">demo 视频 · 国际会议翻译主持<br>全英文本硕，中英都能沟通</p></div>
-        </div>
-        <div class="loopback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v4h-4"/></svg>反馈给研发，进入下一轮迭代</div>
+        <span class="eyebrow">Soft skills</span>
+        <h2>软性技能</h2>
+        <div class="strack" id="softgrid"></div>
       </div>
     </div>
   </section>
@@ -355,7 +328,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 </div>
 
 <script>
-var DATA = {"cards": [{"id": "softhand", "group": "工程项目", "thumb": "../assets/thumbs/softhand.jpg", "title": "腱绳驱动 TPU 软体灵巧手", "meta": "NUS ME5600A 课程项目 · 2026.08 – 2026.11", "badge": "", "summary": "FDM 打印五指灵巧手，滑块-腱绳驱动，柔性关节有限元分析。", "h4": "FDM 打印腱绳驱动 TPU 软体灵巧手", "dmeta": "团队项目（2 人）· NUS ME5600A 先进制造课程项目 · 2026.08 – 2026.11", "li": ["基于开源 Flexy-Hand，增加支撑底座和手动滑块-腱绳驱动机构（每根手指一个滑块，灵感来自 DJ 推子），全部零件用 TPU 打印并组装。", "对柔性 TPU 关节做有限元分析（CalculiX，网格收敛）：近似线性扭簧，转动刚度约 39 N·mm/rad，刚度与腹板厚度的三次方成正比。", "建立含绞盘摩擦和滑块歪斜的腱绳受力模型，预测滑块推力约 14–32 N，解释了滑块推不动的原因；直接拉腱绳可实现单指弯曲和基本抓握。"], "note": "", "links": [["查看项目展示 PPT（PDF）", "https://shinecloud9.github.io/assets/reports/soft_robotic_hand_slides.pdf", 1]], "video": null, "gallery": ["../assets/thumbs/softhand.jpg", "g/hand1.jpg", "g/hand2.jpg", "g/hand3.jpg", "g/hand4.jpg", "g/hand5.jpg"], "chip": ["39 N·mm/rad", "CalculiX"]}, {"id": "honours", "group": "工程项目", "thumb": "../assets/thumbs/honours.jpg", "title": "大直径薄壁圆环立式卷板成形设备", "meta": "本科毕业设计 · 2025–2026", "badge": "", "summary": "12 m 不锈钢圆环成形设备的结构设计与力学仿真。", "h4": "大直径薄壁圆环立式卷板成形设备结构设计与力学仿真", "dmeta": "本科毕业设计（个人项目）· 2025.09 – 2026.04", "li": ["面向直径 12 m、厚 4–10 mm、宽 800–2200 mm 的 304 不锈钢圆环，用 SolidWorks 完成开卷、卷板、切割单元的参数化设计。", "强度与刚度校核：上辊挠度 0.24 mm/m，立柱屈曲安全系数 13.7，焊缝疲劳利用率 0.70；ANSYS 静力分析峰值应力均低于 520 MPa。", "显式瞬态仿真预测成形直径约 10.84 m，与目标偏差小于 10%。"], "note": "", "links": [["查看完整报告（PDF）", "https://shinecloud9.github.io/assets/reports/honours_project.pdf", 1]], "video": null, "gallery": ["../assets/thumbs/honours.jpg"], "chip": ["12 m 圆环", "ANSYS"]}, {"id": "clock", "group": "工程项目", "thumb": "../assets/thumbs/clock.jpg", "title": "机械钟设计制造：齿轮系与擒纵机构", "meta": "制造课程设计 · 小组项目", "badge": "", "summary": "多级齿轮系实现 1/60、1/12 精确传动比，亚克力激光切割制作。", "h4": "机械钟设计制造项目", "dmeta": "制造课程设计（小组项目）· 邓迪国际学院", "li": ["计算各级齿轮齿数，使秒针、分针、时针保持 1/60、1/12 的精确传动比，并尽量减少传动轴数量。", "SolidWorks 完成装配验证，导出 DXF 在 AutoCAD 出图并激光切割亚克力板；采用格拉汉姆擒纵机构与重力驱动。", "测试结果：齿轮系按设计正常传动；擒纵机构存在设计误差导致整钟无法持续走时，报告对此做了原因分析与改进总结。"], "note": "", "links": [["查看完整报告（PDF）", "https://shinecloud9.github.io/assets/reports/mechanical_clock_report.pdf", 1]], "video": null, "gallery": ["../assets/thumbs/clock.jpg"], "chip": ["1/60 · 1/12", "SolidWorks"]}, {"id": "uv", "group": "工程项目", "thumb": "../assets/thumbs/uv.jpg", "title": "Ni/n-ZnO/Ni 紫外光电探测器", "meta": "微纳加工 · 2025.02 – 2025.04", "badge": "", "summary": "磁控溅射、紫外光刻与剥离工艺；截止波长偏移分析。", "h4": "紫外光电探测器设计与工艺优化（Ni/n-ZnO/Ni）", "dmeta": "团队项目（6 人）· 2025.02 – 2025.04", "li": ["RF 磁控溅射制备 ZnO 薄膜，MA6 紫外光刻与剥离工艺制作叉指 Ni 电极。", "完成 I–V 与光谱响应测试，截止波长约 440 nm，超出理论值。", "将偏移归因于多晶薄膜缺陷态，并提出工艺改进方向。"], "note": "", "links": [["查看完整报告（PDF）", "https://shinecloud9.github.io/assets/reports/uv_photodetector_report.pdf", 1]], "video": null, "gallery": ["../assets/thumbs/uv.jpg", "g/uv1.jpg", "g/uv2.jpg", "g/uv3.jpg", "g/uv4.jpg", "g/uv5.jpg", "g/uv6.jpg"], "chip": ["≈440 nm", "MA6 光刻"]}, {"id": "fire", "group": "工程项目", "thumb": "../assets/thumbs/fire.jpg", "title": "智能消防车", "meta": "工程设计项目 · 2024.09 – 2025.01", "badge": "", "summary": "SolidWorks + ANSYS 设计、自制 PCB、Mbed 控制，完成样机。", "h4": "智能消防车", "dmeta": "团队项目（5 人）· 2024.09 – 2025.01", "li": ["SolidWorks 设计底盘、履带与灭火模块，ANSYS Workbench 校核关键零件。", "设计集成 6 个功能模块的 PCB；基于 Mbed 实现 PWM 调速、方向控制、传感器中断和风扇水泵驱动。", "完成蓝牙遥控行驶、火焰检测与灭火功能的样机联调与验证。"], "note": "", "links": [["查看完整报告（PDF）", "https://shinecloud9.github.io/assets/reports/firefighting_vehicle_report.pdf", 1]], "video": null, "gallery": ["../assets/thumbs/fire.jpg", "g/fire5.jpg", "g/fire1.jpg", "g/fire2.jpg", "g/fire3.jpg", "g/fire4.jpg", "g/fire6.jpg"], "chip": ["6 模块 PCB", "Mbed"]}, {"id": "balance", "group": "工程项目", "thumb": "../assets/thumbs/balance.jpg", "title": "两轮自平衡小车", "meta": "暑期金工实习 · PID 控制", "badge": "", "summary": "闭环 PID 控制让小车保持直立，被推动后能自行恢复平衡。", "h4": "两轮自平衡小车", "dmeta": "学校暑期金工实习项目", "li": ["基于 Arduino 控制板搭建两轮自平衡小车。", "调试 PID 控制回路，使小车能自主保持直立。", "演示视频：用手推动小车后，它能自行恢复平衡。"], "note": "", "links": [], "video": "../assets/videos/self_balancing_car.mp4", "gallery": ["../assets/thumbs/balance.jpg"], "chip": ["PID 闭环", "Arduino"]}, {"id": "ase", "group": "科研与竞赛", "thumb": "../assets/thumbs/ase.jpg", "title": "大模型文档工作流的格式鲁棒性", "meta": "北航 · ASE 2026 论文（第二作者）", "badge": "CCF-A", "summary": "面向高风险决策场景的大模型蜕变测试。", "h4": "Not as Sweet by Another Name: An Empirical Study of Format Robustness in LLM Document Workflows", "dmeta": "第二作者 · ASE 2026（CCF-A），慕尼黑", "li": ["研究医疗、金融等高风险场景中，同一文档只换文件格式是否会改变大模型判断：设计 3 条蜕变关系，共 48,000 次执行（4 工作流 × 4 任务 × 4 格式）。", "结果：仅改变格式，准确率最高下降 53.63%，超过 41% 的样本决策发生漂移。", "本人负责：测试包装器与自动化实验管线、Jensen–Shannon divergence 偏移量化、投票聚合与格式路由缓解策略（违反率最高降低 44.21%）；相关方法正在申请发明专利。"], "note": "", "links": [["论文（arXiv）", "https://arxiv.org/abs/2607.27648", 1], ["讲稿", "https://shinecloud9.github.io/assets/docs/ase2026_slides.pdf", 0], ["海报", "https://shinecloud9.github.io/assets/docs/ase2026_poster.pdf", 0], ["代码与数据", "https://doi.org/10.5281/zenodo.21696268", 0], ["DOI", "https://doi.org/10.1145/3832783.3837456", 0]], "video": null, "gallery": ["../assets/airflow_overview.png", "g/ase1.jpg", "g/ase2.jpg", "g/ase3.jpg", "g/ase4.jpg"], "chip": ["48,000 次执行", "CCF-A"]}, {"id": "game", "group": "科研与竞赛", "thumb": null, "title": "基于大模型的游戏自动评测", "meta": "NTU Yang Liu 课题组 · 2026.04 至今", "badge": "", "summary": "游玩智能体、玩家评论评测基准，以及像玩家一样评价游戏的大模型评价者。", "h4": "基于大模型的游戏自动评测", "dmeta": "南洋理工大学 Yang Liu 课题组 · 科研成员 · 2026.04 至今", "li": ["整合开源游玩智能体搭建测试框架，记录截图、动作与游玩轨迹。", "构建覆盖 9 类游戏、2 类评论者的评论数据集，并做结构化评价维度抽取。", "对比基于角色设定的大模型评价者与真实玩家反馈，包括对游戏机制改动的反应。"], "note": "相关两篇论文处于双盲评审中，暂不公开链接。", "links": [], "video": null, "gallery": [], "chip": ["9 类游戏", "LLM"]}, {"id": "techjam", "group": "科研与竞赛", "thumb": "../assets/thumbs/techjam.jpg", "title": "IntentCompass 多轮对话商品搜索智能体", "meta": "TikTok TechJam 2026 · Aug – Sep 2026", "badge": "", "summary": "面向约 5 万件商品目录的多轮购物智能体。", "h4": "IntentCompass：多轮对话式商品搜索智能体", "dmeta": "TikTok TechJam 2026 · 团队成员 · 2026.08 – 2026.09", "li": ["面向约 5 万件商品目录，评测意图路由、属性约束、上下文继承与动态澄清等环节。", "负责 Windows 环境复现与失败案例分析，定位检索偏差与边界问题。"], "note": "", "links": [["在 YouTube 打开", "https://www.youtube.com/watch?v=NEJMmaECcLo&t=6s", 1], ["GitHub 仓库", "https://github.com/fxklp/intentcompass-techjam2026", 0]], "video": null, "gallery": ["../assets/thumbs/techjam.jpg"], "chip": ["≈5 万件商品", "TikTok"]}, {"id": "tryon", "group": "科研与竞赛", "thumb": "../assets/thumbs/tryon.jpg", "title": "轻量化虚拟试衣系统", "meta": "大学生创新创业训练计划 · 2024.02 – 2024.06", "badge": "", "summary": "姿态估计 + 轻量化 CP-VTON+，CPU 部署，系统小于 50 MB。", "h4": "轻量化虚拟试衣系统", "dmeta": "大学生创新创业训练计划 · 团队成员（5 人）· 2024.02 – 2024.06", "li": ["基于 MoveNet + MobileNetV2 + FPN 的姿态估计与服装对齐。", "使用深度可分离卷积对 CP-VTON+ 做轻量化。", "OpenVINO CPU 部署，整个系统小于 50 MB。"], "note": "", "links": [["答辩 PPT（PDF）", "https://shinecloud9.github.io/assets/reports/virtual_tryon_deck.pdf", 1]], "video": null, "gallery": ["../assets/thumbs/tryon.jpg"], "chip": ["< 50 MB", "OpenVINO"]}, {"id": "pv", "group": "科研与竞赛", "thumb": "../assets/thumbs/pv.jpg", "title": "数据驱动的光伏发电功率预测", "meta": "数学建模 · 2024", "badge": "", "summary": "影响因素分析与机器学习回归预测光伏出力。", "h4": "数据驱动的光伏发电功率预测", "dmeta": "数学建模竞赛论文 · 2024", "li": ["完成数据清洗与时间特征提取，定量分析辐照、温度、风速等因素对发电功率的影响。", "对比线性回归、决策树、随机森林、SVM 等模型，用 MSE、RMSE、MAE、R² 评价。", "分析极端天气下的稳健性与预测误差来源。"], "note": "", "links": [["竞赛论文（PDF）", "https://shinecloud9.github.io/assets/reports/pv_power_forecasting.pdf", 1]], "video": null, "gallery": ["../assets/thumbs/pv.jpg"], "chip": ["4 类模型", "随机森林"]}, {"id": "mcm", "group": "科研与竞赛", "thumb": "../assets/thumbs/mcm.jpg", "title": "网球比赛“势头”建模（美赛 C 题）", "meta": "2024 美国大学生数学建模竞赛 · Successful Participant", "badge": "", "summary": "随机森林特征筛选 + 改进 LSTM，基于温网比赛数据。", "h4": "Catch the Flow of a Match with Improved LSTM", "dmeta": "2024 美国大学生数学建模竞赛 · C 题 · Successful Participant", "li": ["用随机森林筛选关键比赛属性，并据此建立心理压力与体能消耗量化模型。", "用改进 LSTM 预测 2023 温网比赛中的势头变化。"], "note": "", "links": [["竞赛论文（PDF）", "https://shinecloud9.github.io/assets/reports/mcm_tennis_paper.pdf", 1]], "video": null, "gallery": ["../assets/thumbs/mcm.jpg"], "chip": ["改进 LSTM", "MCM 2024"]}], "exp": [{"t": "中国信息通信研究院 人工智能研究所 平台与工程部 · 实习生", "when": "2026.01 – 2026.03", "d": "围绕宁波高质量数据集建设与沈阳数据标注实践开展专题调研；参与 WG2/WG5 联合会议与“方升”智测研讨会筹备，负责议程准备与会议材料审阅。"}, {"t": "长沙景嘉微电子股份有限公司 · 共性研究院实习生", "when": "2025.10 – 2025.12", "d": "参与半导体制造相关的工艺分析、产品测试与工程数据处理，辅助定位潜在工艺异常；参加封装实验室及产线流程培训，理解后道制造、集成测试与质量控制的关系。"}, {"t": "第 11 届 ICAMMT 国际会议志愿者（翻译、开幕式主持）", "when": "2025.04", "d": "负责报告人后勤协调、现场翻译与开幕式主持（长沙）。"}, {"t": "邓迪国际学院团委宣传部 · 干事", "when": "2022.09 – 2023.09", "d": "撰写编辑 20+ 篇公众号文章，组织 Photoshop 工作坊。"}], "awards": ["2024 第三届全国大学生技术创新创业大赛 校级培育项目", "湖南省大学生节能减排竞赛 省级三等奖（2023）", "2024 全国大学生英语翻译大赛 省级二等奖", "2024 美国大学生数学建模竞赛 Successful Participant", "中南大学 2022–2023 学年三等奖学金、院级专项奖学金（2025）"], "skills": [["机械设计与仿真", "SolidWorks, AutoCAD, ANSYS Workbench （静力、非线性、瞬态）"], ["半导体", "磁控溅射、紫外光刻、剥离工艺；工艺与测试数据分析；封装与测试产线培训"], ["电子与嵌入式", "PCB 设计、Mbed、Arduino"], ["编程与 AI", "Python、MATLAB、C++；大模型测试与评测管线；OpenVINO 部署"], ["语言", "普通话（二级甲等）；英语（IELTS 6.5、CET-6），本科与硕士均为全英文授课"]]};
+var DATA = {"cards": [{"id": "softhand", "group": "工程项目", "thumb": "../assets/thumbs/softhand.jpg", "title": "腱绳驱动 TPU 软体灵巧手", "meta": "NUS ME5600A 课程项目 · 2026.08 – 2026.11", "badge": "", "summary": "FDM 打印五指灵巧手，滑块-腱绳驱动，柔性关节有限元分析。", "h4": "FDM 打印腱绳驱动 TPU 软体灵巧手", "dmeta": "团队项目（2 人）· NUS ME5600A 先进制造课程项目 · 2026.08 – 2026.11", "li": ["基于开源 Flexy-Hand，增加支撑底座和手动滑块-腱绳驱动机构（每根手指一个滑块，灵感来自 DJ 推子），全部零件用 TPU 打印并组装。", "对柔性 TPU 关节做有限元分析（CalculiX，网格收敛）：近似线性扭簧，转动刚度约 39 N·mm/rad，刚度与腹板厚度的三次方成正比。", "建立含绞盘摩擦和滑块歪斜的腱绳受力模型，预测滑块推力约 14–32 N，解释了滑块推不动的原因；直接拉腱绳可实现单指弯曲和基本抓握。"], "note": "", "links": [["查看项目展示 PPT（PDF）", "https://shinecloud9.github.io/assets/reports/soft_robotic_hand_slides.pdf", 1]], "video": null, "gallery": ["../assets/thumbs/softhand.jpg", "g/hand1.jpg", "g/hand2.jpg", "g/hand3.jpg", "g/hand4.jpg", "g/hand5.jpg"], "chip": ["39 N·mm/rad", "CalculiX"]}, {"id": "honours", "group": "工程项目", "thumb": "../assets/thumbs/honours.jpg", "title": "大直径薄壁圆环立式卷板成形设备", "meta": "本科毕业设计 · 2025–2026", "badge": "", "summary": "12 m 不锈钢圆环成形设备的结构设计与力学仿真。", "h4": "大直径薄壁圆环立式卷板成形设备结构设计与力学仿真", "dmeta": "本科毕业设计（个人项目）· 2025.09 – 2026.04", "li": ["面向直径 12 m、厚 4–10 mm、宽 800–2200 mm 的 304 不锈钢圆环，用 SolidWorks 完成开卷、卷板、切割单元的参数化设计。", "强度与刚度校核：上辊挠度 0.24 mm/m，立柱屈曲安全系数 13.7，焊缝疲劳利用率 0.70；ANSYS 静力分析峰值应力均低于 520 MPa。", "显式瞬态仿真预测成形直径约 10.84 m，与目标偏差小于 10%。"], "note": "", "links": [["查看完整报告（PDF）", "https://shinecloud9.github.io/assets/reports/honours_project.pdf", 1]], "video": null, "gallery": ["../assets/thumbs/honours.jpg", "g/hon1.jpg", "g/hon2.jpg", "g/hon3.jpg", "g/hon4.jpg", "g/hon5.jpg", "g/hon6.jpg", "g/hon7.jpg"], "chip": ["12 m 圆环", "ANSYS"]}, {"id": "clock", "group": "工程项目", "thumb": "../assets/thumbs/clock.jpg", "title": "机械钟设计制造：齿轮系与擒纵机构", "meta": "制造课程设计 · 小组项目", "badge": "", "summary": "多级齿轮系实现 1/60、1/12 精确传动比，亚克力激光切割制作。", "h4": "机械钟设计制造项目", "dmeta": "制造课程设计（小组项目）· 邓迪国际学院", "li": ["计算各级齿轮齿数，使秒针、分针、时针保持 1/60、1/12 的精确传动比，并尽量减少传动轴数量。", "SolidWorks 完成装配验证，导出 DXF 在 AutoCAD 出图并激光切割亚克力板；采用格拉汉姆擒纵机构与重力驱动。", "测试结果：齿轮系按设计正常传动；擒纵机构存在设计误差导致整钟无法持续走时，报告对此做了原因分析与改进总结。"], "note": "", "links": [["查看完整报告（PDF）", "https://shinecloud9.github.io/assets/reports/mechanical_clock_report.pdf", 1]], "video": null, "gallery": ["../assets/thumbs/clock.jpg", "g/clk1.jpg", "g/clk2.jpg", "g/clk3.jpg", "g/clk4.jpg", "g/clk5.jpg"], "chip": ["1/60 · 1/12", "SolidWorks"]}, {"id": "uv", "group": "工程项目", "thumb": "../assets/thumbs/uv.jpg", "title": "Ni/n-ZnO/Ni 紫外光电探测器", "meta": "微纳加工 · 2025.02 – 2025.04", "badge": "", "summary": "磁控溅射、紫外光刻与剥离工艺；截止波长偏移分析。", "h4": "紫外光电探测器设计与工艺优化（Ni/n-ZnO/Ni）", "dmeta": "团队项目（6 人）· 2025.02 – 2025.04", "li": ["RF 磁控溅射制备 ZnO 薄膜，MA6 紫外光刻与剥离工艺制作叉指 Ni 电极。", "完成 I–V 与光谱响应测试，截止波长约 440 nm，超出理论值。", "将偏移归因于多晶薄膜缺陷态，并提出工艺改进方向。"], "note": "", "links": [["查看完整报告（PDF）", "https://shinecloud9.github.io/assets/reports/uv_photodetector_report.pdf", 1]], "video": null, "gallery": ["../assets/thumbs/uv.jpg", "g/uv1.jpg", "g/uv2.jpg", "g/uv3.jpg", "g/uv4.jpg", "g/uv5.jpg", "g/uv6.jpg"], "chip": ["≈440 nm", "MA6 光刻"]}, {"id": "fire", "group": "工程项目", "thumb": "../assets/thumbs/fire.jpg", "title": "智能消防车", "meta": "工程设计项目 · 2024.09 – 2025.01", "badge": "", "summary": "SolidWorks + ANSYS 设计、自制 PCB、Mbed 控制，完成样机。", "h4": "智能消防车", "dmeta": "团队项目（5 人）· 2024.09 – 2025.01", "li": ["SolidWorks 设计底盘、履带与灭火模块，ANSYS Workbench 校核关键零件。", "设计集成 6 个功能模块的 PCB；基于 Mbed 实现 PWM 调速、方向控制、传感器中断和风扇水泵驱动。", "完成蓝牙遥控行驶、火焰检测与灭火功能的样机联调与验证。"], "note": "", "links": [["查看完整报告（PDF）", "https://shinecloud9.github.io/assets/reports/firefighting_vehicle_report.pdf", 1]], "video": null, "gallery": ["../assets/thumbs/fire.jpg", "g/fire5.jpg", "g/fire1.jpg", "g/fire2.jpg", "g/fire3.jpg", "g/fire4.jpg", "g/fire6.jpg"], "chip": ["6 模块 PCB", "Mbed"]}, {"id": "balance", "group": "工程项目", "thumb": "../assets/thumbs/balance.jpg", "title": "两轮自平衡小车", "meta": "暑期金工实习 · PID 控制", "badge": "", "summary": "闭环 PID 控制让小车保持直立，被推动后能自行恢复平衡。", "h4": "两轮自平衡小车", "dmeta": "学校暑期金工实习项目", "li": ["基于 Arduino 控制板搭建两轮自平衡小车。", "调试 PID 控制回路，使小车能自主保持直立。", "演示视频：用手推动小车后，它能自行恢复平衡。"], "note": "", "links": [], "video": "../assets/videos/self_balancing_car.mp4", "gallery": ["../assets/thumbs/balance.jpg"], "chip": ["PID 闭环", "Arduino"]}, {"id": "ase", "group": "科研与竞赛", "thumb": "../assets/thumbs/ase.jpg", "title": "大模型文档工作流的格式鲁棒性", "meta": "北航 · ASE 2026 论文（第二作者）", "badge": "CCF-A", "summary": "面向高风险决策场景的大模型蜕变测试。", "h4": "Not as Sweet by Another Name: An Empirical Study of Format Robustness in LLM Document Workflows", "dmeta": "第二作者 · ASE 2026（CCF-A），慕尼黑", "li": ["研究医疗、金融等高风险场景中，同一文档只换文件格式是否会改变大模型判断：设计 3 条蜕变关系，共 48,000 次执行（4 工作流 × 4 任务 × 4 格式）。", "结果：仅改变格式，准确率最高下降 53.63%，超过 41% 的样本决策发生漂移。", "本人负责：测试包装器与自动化实验管线、Jensen–Shannon divergence 偏移量化、投票聚合与格式路由缓解策略（违反率最高降低 44.21%）；相关方法正在申请发明专利。"], "note": "", "links": [["论文（arXiv）", "https://arxiv.org/abs/2607.27648", 1], ["讲稿", "https://shinecloud9.github.io/assets/docs/ase2026_slides.pdf", 0], ["海报", "https://shinecloud9.github.io/assets/docs/ase2026_poster.pdf", 0], ["代码与数据", "https://doi.org/10.5281/zenodo.21696268", 0], ["DOI", "https://doi.org/10.1145/3832783.3837456", 0]], "video": null, "gallery": ["../assets/airflow_overview.png", "g/ase1.jpg", "g/ase2.jpg", "g/ase3.jpg", "g/ase4.jpg"], "chip": ["48,000 次执行", "CCF-A"]}, {"id": "game", "group": "科研与竞赛", "thumb": null, "title": "基于大模型的游戏自动评测", "meta": "NTU Yang Liu 课题组 · 2026.04 至今", "badge": "", "summary": "游玩智能体、玩家评论评测基准，以及像玩家一样评价游戏的大模型评价者。", "h4": "基于大模型的游戏自动评测", "dmeta": "南洋理工大学 Yang Liu 课题组 · 科研成员 · 2026.04 至今", "li": ["整合开源游玩智能体搭建测试框架，记录截图、动作与游玩轨迹。", "构建覆盖 9 类游戏、2 类评论者的评论数据集，并做结构化评价维度抽取。", "对比基于角色设定的大模型评价者与真实玩家反馈，包括对游戏机制改动的反应。"], "note": "相关两篇论文处于双盲评审中，暂不公开链接。", "links": [], "video": null, "gallery": [], "chip": ["9 类游戏", "LLM"]}, {"id": "techjam", "group": "科研与竞赛", "thumb": "../assets/thumbs/techjam.jpg", "title": "IntentCompass 多轮对话商品搜索智能体", "meta": "TikTok TechJam 2026 · Aug – Sep 2026", "badge": "", "summary": "面向约 5 万件商品目录的多轮购物智能体。", "h4": "IntentCompass：多轮对话式商品搜索智能体", "dmeta": "TikTok TechJam 2026 · 团队成员 · 2026.08 – 2026.09", "li": ["面向约 5 万件商品目录，评测意图路由、属性约束、上下文继承与动态澄清等环节。", "负责 Windows 环境复现与失败案例分析，定位检索偏差与边界问题。"], "note": "", "links": [["在 YouTube 打开", "https://www.youtube.com/watch?v=NEJMmaECcLo&t=6s", 1], ["GitHub 仓库", "https://github.com/fxklp/intentcompass-techjam2026", 0]], "video": null, "gallery": ["../assets/thumbs/techjam.jpg"], "chip": ["≈5 万件商品", "TikTok"]}, {"id": "tryon", "group": "科研与竞赛", "thumb": "../assets/thumbs/tryon.jpg", "title": "轻量化虚拟试衣系统", "meta": "大学生创新创业训练计划 · 2024.02 – 2024.06", "badge": "", "summary": "姿态估计 + 轻量化 CP-VTON+，CPU 部署，系统小于 50 MB。", "h4": "轻量化虚拟试衣系统", "dmeta": "大学生创新创业训练计划 · 团队成员（5 人）· 2024.02 – 2024.06", "li": ["基于 MoveNet + MobileNetV2 + FPN 的姿态估计与服装对齐。", "使用深度可分离卷积对 CP-VTON+ 做轻量化。", "OpenVINO CPU 部署，整个系统小于 50 MB。"], "note": "", "links": [["答辩 PPT（PDF）", "https://shinecloud9.github.io/assets/reports/virtual_tryon_deck.pdf", 1]], "video": null, "gallery": ["../assets/thumbs/tryon.jpg", "g/try1.jpg", "g/try2.jpg", "g/try3.jpg", "g/try4.jpg", "g/try5.jpg", "g/try6.jpg"], "chip": ["< 50 MB", "OpenVINO"]}, {"id": "pv", "group": "科研与竞赛", "thumb": "../assets/thumbs/pv.jpg", "title": "数据驱动的光伏发电功率预测", "meta": "数学建模 · 2024", "badge": "", "summary": "影响因素分析与机器学习回归预测光伏出力。", "h4": "数据驱动的光伏发电功率预测", "dmeta": "数学建模竞赛论文 · 2024", "li": ["完成数据清洗与时间特征提取，定量分析辐照、温度、风速等因素对发电功率的影响。", "对比线性回归、决策树、随机森林、SVM 等模型，用 MSE、RMSE、MAE、R² 评价。", "分析极端天气下的稳健性与预测误差来源。"], "note": "", "links": [["竞赛论文（PDF）", "https://shinecloud9.github.io/assets/reports/pv_power_forecasting.pdf", 1]], "video": null, "gallery": ["../assets/thumbs/pv.jpg", "g/pv1.jpg", "g/pv2.jpg", "g/pv3.jpg", "g/pv4.jpg"], "chip": ["4 类模型", "随机森林"]}, {"id": "mcm", "group": "科研与竞赛", "thumb": "../assets/thumbs/mcm.jpg", "title": "网球比赛“势头”建模（美赛 C 题）", "meta": "2024 美国大学生数学建模竞赛 · Successful Participant", "badge": "", "summary": "随机森林特征筛选 + 改进 LSTM，基于温网比赛数据。", "h4": "Catch the Flow of a Match with Improved LSTM", "dmeta": "2024 美国大学生数学建模竞赛 · C 题 · Successful Participant", "li": ["用随机森林筛选关键比赛属性，并据此建立心理压力与体能消耗量化模型。", "用改进 LSTM 预测 2023 温网比赛中的势头变化。"], "note": "", "links": [["竞赛论文（PDF）", "https://shinecloud9.github.io/assets/reports/mcm_tennis_paper.pdf", 1]], "video": null, "gallery": ["../assets/thumbs/mcm.jpg", "g/mcm1.jpg", "g/mcm2.jpg", "g/mcm3.jpg", "g/mcm4.jpg", "g/mcm5.jpg"], "chip": ["改进 LSTM", "MCM 2024"]}], "exp": [{"t": "中国信息通信研究院 人工智能研究所 平台与工程部 · 实习生", "when": "2026.01 – 2026.03", "d": "围绕宁波高质量数据集建设与沈阳数据标注实践开展专题调研；参与 WG2/WG5 联合会议与“方升”智测研讨会筹备，负责议程准备与会议材料审阅。"}, {"t": "长沙景嘉微电子股份有限公司 · 共性研究院实习生", "when": "2025.10 – 2025.12", "d": "参与半导体制造相关的工艺分析、产品测试与工程数据处理，辅助定位潜在工艺异常；参加封装实验室及产线流程培训，理解后道制造、集成测试与质量控制的关系。"}, {"t": "第 11 届 ICAMMT 国际会议志愿者（翻译、开幕式主持）", "when": "2025.04", "d": "负责报告人后勤协调、现场翻译与开幕式主持（长沙）。"}, {"t": "邓迪国际学院团委宣传部 · 干事", "when": "2022.09 – 2023.09", "d": "撰写编辑 20+ 篇公众号文章，组织 Photoshop 工作坊。"}], "awards": ["2024 第三届全国大学生技术创新创业大赛 校级培育项目", "湖南省大学生节能减排竞赛 省级三等奖（2023）", "2024 全国大学生英语翻译大赛 省级二等奖", "2024 美国大学生数学建模竞赛 Successful Participant", "中南大学 2022–2023 学年三等奖学金、院级专项奖学金（2025）"], "skills": [["机械设计与仿真", "SolidWorks, AutoCAD, ANSYS Workbench （静力、非线性、瞬态）"], ["半导体", "磁控溅射、紫外光刻、剥离工艺；工艺与测试数据分析；封装与测试产线培训"], ["电子与嵌入式", "PCB 设计、Mbed、Arduino"], ["编程与 AI", "Python、MATLAB、C++；大模型测试与评测管线；OpenVINO 部署"], ["语言", "普通话（二级甲等）；英语（IELTS 6.5、CET-6），本科与硕士均为全英文授课"]]};
 (function(){
 var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
 function el(tag, cls, txt){ var e=document.createElement(tag); if(cls)e.className=cls; if(txt!=null)e.textContent=txt; return e; }
@@ -382,8 +355,16 @@ var SOFT=[
   ev:['<b>并行</b> 2025.10 起北航科研、2026.04 起南洋理工科研同时进行，2026.08–09 参加 TechJam，同时完成 NUS 硕士课程','<b>转方向</b> 从机械设计到 AI 系统测试，再回到机器人与软体灵巧手','<b>交付</b> 北航方向成果以第二作者发表于 ASE 2026']}
 ];
 var sg=document.getElementById('softgrid');
-SOFT.forEach(function(x){ var d=el('div','sk rv'); var ic=el('div','ic'); ic.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'+x.ic+'</svg>'; d.appendChild(ic);
+SOFT.forEach(function(x,n){ var d=el('div','snode'); d.tabIndex=0; var top=el('div','top'); var ic=el('div','ic'); ic.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'+x.ic+'</svg>'; top.appendChild(ic); top.appendChild(el('span','no',(n<9?'0':'')+(n+1))); d.appendChild(top);
   d.appendChild(el('h3',null,x.k)); d.appendChild(el('p','d',x.d)); var ul=el('ul'); x.ev.forEach(function(h){ var li=el('li'); li.innerHTML=h; ul.appendChild(li); }); d.appendChild(ul); sg.appendChild(d); });
+(function(){
+  var nodes=[].slice.call(sg.children),cur=0,paused=false,vis=false;
+  function set(i){ cur=i; nodes.forEach(function(n,k){ n.classList.toggle('on',k===i); n.classList.toggle('past',k<i); }); }
+  nodes.forEach(function(n,k){ n.addEventListener('mouseenter',function(){paused=true;set(k)}); n.addEventListener('focus',function(){paused=true;set(k)}); n.addEventListener('mouseleave',function(){paused=false}); n.addEventListener('blur',function(){paused=false}); });
+  set(0);
+  if(!reduce){ setInterval(function(){ if(!paused&&vis) set((cur+1)%nodes.length); },1900);
+    if('IntersectionObserver' in window) new IntersectionObserver(function(es){vis=es[0].isIntersecting}).observe(sg); else vis=true; }
+})();
 
 /* modal */
 var modal=document.getElementById('modal'),gmain=document.getElementById('gmain'),gthumbs=document.getElementById('gthumbs'),gcount=document.getElementById('gcount'),gal=document.getElementById('gal');
@@ -423,16 +404,6 @@ Object.keys(ORDER).forEach(function(g){ ORDER[g].forEach(function(id){ var c=C.f
 document.documentElement.classList.add('js');
 if(!reduce && 'IntersectionObserver' in window){ var vh=innerHeight; var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.remove('pre'); io.unobserve(e.target); } }); },{rootMargin:'0px 0px -6% 0px'});
   [].forEach.call(document.querySelectorAll('.rv'),function(x){ if(x.getBoundingClientRect().top>vh*.95) x.classList.add('pre'); io.observe(x); }); }
-
-/* habits loop */
-(function(){
-  var nodes=[].slice.call(document.querySelectorAll('.node')),fill=document.getElementById('railfill'),cur=0,paused=false,vis=false;
-  function set(i){ cur=i; nodes.forEach(function(n,k){n.classList.toggle('on',k===i)}); var pct=i/(nodes.length-1)*100; fill.style.width=pct+'%'; fill.style.setProperty('--h',pct+'%'); }
-  nodes.forEach(function(n,k){ n.addEventListener('mouseenter',function(){paused=true;set(k)}); n.addEventListener('focus',function(){paused=true;set(k)}); n.addEventListener('mouseleave',function(){paused=false}); n.addEventListener('blur',function(){paused=false}); });
-  set(0);
-  if(!reduce){ setInterval(function(){ if(!paused&&vis) set((cur+1)%nodes.length); },1700);
-    if('IntersectionObserver' in window) new IntersectionObserver(function(es){vis=es[0].isIntersecting}).observe(document.getElementById('track')); else vis=true; }
-})();
 
 /* closing field */
 (function(){
